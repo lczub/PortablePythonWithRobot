@@ -34,8 +34,8 @@ Section "!Python 2.7.5 core" PYTHON_CORE
 	File "${SOURCESFOLDER}\PythonW-Portable.exe"
 	File "${SOURCESFOLDER}\IDLE-Portable.exe"
 SectionEnd
-/* 
 SectionGroup "Modules"
+/* 
 	Section "NumPy 1.7.1" MODULE_NUMPY
 		SectionIn 1
 		SetOutPath "$INSTDIR\App\Lib\site-packages\"
@@ -73,11 +73,13 @@ SectionGroup "Modules"
 		SetOutPath "$INSTDIR\App\Lib\site-packages\"
 		File /r "${SOURCESFOLDER}\py2exe\PLATLIB\*.*"
 	SectionEnd
+*/
 	Section "wxPython 2.9.4.0" MODULE_WXPYTHON
 		SectionIn 1
 		SetOutPath "$INSTDIR\App\"
 		File /r "${SOURCESFOLDER}\wxpython\package\*.*"
 	SectionEnd
+/* 
 	Section "matplotlib 1.2.1" MODULE_MATPLOTLIB
 		SectionIn 1
 		SetOutPath "$INSTDIR\App\Lib\site-packages\"
@@ -135,8 +137,8 @@ SectionGroup "Modules"
 		SetOutPath "$INSTDIR\App\Lib\site-packages\"
 		File /r "${SOURCESFOLDER}\pandas\PLATLIB\*.*"
 	SectionEnd 
-SectionGroupEnd
 */
+SectionGroupEnd
 /* 
 SectionGroup "Code editors"
 	Section "PyScripter 2.5.3" IDE_PYSCRIPTER
