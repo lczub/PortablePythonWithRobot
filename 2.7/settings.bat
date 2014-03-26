@@ -23,7 +23,7 @@
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 set PY_VERSION=2.7
-set PP_VERSION=5.1
+set PP_VERSION=5.2
 set PY_SHORT_VERSION=27
 
 :: Core
