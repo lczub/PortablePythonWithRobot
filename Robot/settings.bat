@@ -30,5 +30,14 @@ call %PP_BASE%\settings.bat
 set PY_VERSION=275
 set PP_VERSION=1.0.0
 set PY_SHORT_VERSION=27
-set TEMP=%~dp0..\build
+rem set TEMP=%~dp0..\build
+
+:: Robot Editor RIDE does not work with wxPython 2.9.*, what is installed with PortablePython 2.7 
+:: details see https://github.com/robotframework/RIDE/wiki/Installation-Instructions#id10
+:: RIDE requires wxPython 2.8.*
+
+set WXPYTHON_DOWNLOAD="http://sourceforge.net/projects/wxpython/files/wxPython/2.8.12.1/wxPython2.8-win32-unicode-2.8.12.1-py27.exe"
+set WXPYTHON_FILE=wxPython2.8-win32-unicode-2.8.12.1-py27.exe
+set WXPYTHON_MD5=895ba07ea6c05fcdbc273a921bad787b
+
 

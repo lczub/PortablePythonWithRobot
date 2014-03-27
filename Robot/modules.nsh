@@ -25,9 +25,10 @@
 
 InstType "Full"
 InstType "Minimal"
+InstType "Ride"
 
 Section "!Python 2.7.5 core" PYTHON_CORE
-	SectionIn 1 2 RO
+	SectionIn 1 2 3 RO
 	SetOutPath "$INSTDIR"
 	File /r "${SOURCESFOLDER}\python-core\*.*"
 	File "${SOURCESFOLDER}\Python-Portable.exe"
@@ -74,8 +75,8 @@ SectionGroup "Modules"
 		File /r "${SOURCESFOLDER}\py2exe\PLATLIB\*.*"
 	SectionEnd
 */
-	Section "wxPython 2.9.4.0" MODULE_WXPYTHON
-		SectionIn 1
+	Section "wxPython 2.8.12.1 UniCode" MODULE_WXPYTHON
+		SectionIn 1 3
 		SetOutPath "$INSTDIR\App\"
 		File /r "${SOURCESFOLDER}\wxpython\package\*.*"
 	SectionEnd
@@ -149,3 +150,45 @@ SectionGroup "Code editors"
 	SectionEnd
 SectionGroupEnd
 */
+
+; pip section is an extract from 
+; https://github.com/wheeler-microfluidics/microdrop_portable_python_base/blob/microdrop/2.7/modules.nsh
+; many thanks to Christian Frobel for these piece of work
+
+SectionGroup "`pip` packages"
+    Section "Prepare `easy_install` and `pip`"
+        Var /GLOBAL EasyInstall
+        Var /GLOBAL Pip
+        Var /GLOBAL PipInstallFlags
+        SectionIn 1 2 3 RO
+        StrCpy $EasyInstall '$INSTDIR\App\Scripts\easy_install.exe'
+        StrCpy $Pip '$INSTDIR\App\Scripts\pip.exe'
+        ; Use `--pre` argument to allow installation of [pre-release][1]
+        ; package versions.
+        ;
+        ; [1]: http://stackoverflow.com/questions/18230956/could-not-find-a-version-that-satisfies-the-requirement-pytz
+        StrCpy $PipInstallFlags ' --pre '
+    SectionEnd
+
+    Section "Install pip"
+        SectionIn 1 2 3 RO
+        nsExec::ExecToLog '$EasyInstall pip'
+    SectionEnd
+	
+    Section "Install robotframework"  PIP_MODULE_ROBOT
+        SectionIn 1 2 3 RO
+        ; nsExec::ExecToLog '$Pip install robotframework'
+        nsExec::ExecToLog '$Pip install robotframework'
+    SectionEnd
+
+    Section "Install robotframework-selenium2library"  PIP_MODULE_ROBOT_SELENIUM2LIB
+        SectionIn 1
+        nsExec::ExecToLog '$Pip install robotframework-selenium2library'
+    SectionEnd
+
+    Section "Install robotframework-ride"  PIP_MODULE_ROBOT_RIDE
+        SectionIn 1 3
+        nsExec::ExecToLog '$Pip install robotframework-ride'
+    SectionEnd
+	
+SectionGroupEnd

@@ -22,8 +22,8 @@
 :: http://PortablePython.com
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-:: Include common functions
-set COMMON=.\..\common.bat
+:: Include common functions not necessary -  %PP_BASE%\modules.bat call it
+REM set COMMON=.\..\common.bat
 
 :: download and build required PP 2.7 packages
 call %PP_BASE%\modules.bat Python WxPython
