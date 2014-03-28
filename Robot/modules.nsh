@@ -34,7 +34,17 @@ Section "!Python 2.7.5 core" PYTHON_CORE
 	File "${SOURCESFOLDER}\Python-Portable.exe"
 	File "${SOURCESFOLDER}\PythonW-Portable.exe"
 	File "${SOURCESFOLDER}\IDLE-Portable.exe"
+	
+	; pip installation is an extract from 
+	; https://github.com/wheeler-microfluidics/microdrop_portable_python_base/blob/microdrop/2.7/modules.nsh
+	; many thanks to Christian Frobel 
+	Var /GLOBAL EasyInstall
+	Var /GLOBAL Pip
+	StrCpy $EasyInstall '$INSTDIR\App\Scripts\easy_install.exe'
+	StrCpy $Pip '$INSTDIR\App\Scripts\pip.exe'
+	nsExec::ExecToLog '$EasyInstall pip'
 SectionEnd
+
 SectionGroup "Modules"
 /* 
 	Section "NumPy 1.7.1" MODULE_NUMPY
@@ -140,55 +150,34 @@ SectionGroup "Modules"
 	SectionEnd 
 */
 SectionGroupEnd
-/* 
-SectionGroup "Code editors"
-	Section "PyScripter 2.5.3" IDE_PYSCRIPTER
-		SectionIn 1
-		SetOutPath "$INSTDIR"
-		File /r "${SOURCESFOLDER}\PyScripter\*.*"
-		File "${SOURCESFOLDER}\PyScripter-Portable.exe"
-	SectionEnd
-SectionGroupEnd
-*/
 
-; pip section is an extract from 
-; https://github.com/wheeler-microfluidics/microdrop_portable_python_base/blob/microdrop/2.7/modules.nsh
-; many thanks to Christian Frobel for these piece of work
-
-SectionGroup "`pip` packages"
-    Section "Prepare `easy_install` and `pip`"
-        Var /GLOBAL EasyInstall
-        Var /GLOBAL Pip
-        Var /GLOBAL PipInstallFlags
-        SectionIn 1 2 3 RO
-        StrCpy $EasyInstall '$INSTDIR\App\Scripts\easy_install.exe'
-        StrCpy $Pip '$INSTDIR\App\Scripts\pip.exe'
-        ; Use `--pre` argument to allow installation of [pre-release][1]
-        ; package versions.
-        ;
-        ; [1]: http://stackoverflow.com/questions/18230956/could-not-find-a-version-that-satisfies-the-requirement-pytz
-        StrCpy $PipInstallFlags ' --pre '
-    SectionEnd
-
-    Section "Install pip"
-        SectionIn 1 2 3 RO
-        nsExec::ExecToLog '$EasyInstall pip'
-    SectionEnd
+SectionGroup "Robot `pip` packages"
 	
-    Section "Install robotframework"  PIP_MODULE_ROBOT
+    Section "robotframework"  PIP_MODULE_ROBOT
         SectionIn 1 2 3 RO
         ; nsExec::ExecToLog '$Pip install robotframework'
         nsExec::ExecToLog '$Pip install robotframework'
     SectionEnd
 
-    Section "Install robotframework-selenium2library"  PIP_MODULE_ROBOT_SELENIUM2LIB
+    Section "robotframework-selenium2library"  PIP_MODULE_ROBOT_SELENIUM2LIB
         SectionIn 1
         nsExec::ExecToLog '$Pip install robotframework-selenium2library'
     SectionEnd
+	
+SectionGroupEnd
 
-    Section "Install robotframework-ride"  PIP_MODULE_ROBOT_RIDE
+SectionGroup "Code editors"
+	; Section "PyScripter 2.5.3" IDE_PYSCRIPTER
+		; SectionIn 1
+		; SetOutPath "$INSTDIR"
+		; File /r "${SOURCESFOLDER}\PyScripter\*.*"
+		; File "${SOURCESFOLDER}\PyScripter-Portable.exe"
+	; SectionEnd
+	
+    Section "robotframework-ride (via pip)"  PIP_MODULE_ROBOT_RIDE
         SectionIn 1 3
         nsExec::ExecToLog '$Pip install robotframework-ride'
     SectionEnd
-	
 SectionGroupEnd
+
+
