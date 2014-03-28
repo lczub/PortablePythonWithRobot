@@ -1,0 +1,27 @@
+#  Copyright 2014 Luiko Czub, Smallcases GmbH
+#
+# Place to define own keywords for magik datadictionary tests
+
+
+*** Settings ***
+Documentation    Example extension of robot_magik_dsview keywords for data dictionary tests
+Resource    %{SC_ROBOT_MAGIK}/resources/robot_magik_dsview.txt
+
+*** Keywords ***
+Pruefe Existenz der Tabelle
+    [Arguments]    ${dscoll_name}    ${external_name_refexp} 
+    ${dscoll}=    Get DsCollection    ${dscoll_name}
+    ${response}=    Execute Magik Command    ${dscoll}
+    Should Not Be Equal    'unset'    '${response}'    Tabelle ${CLI_DSVIEW_NAME}.${dscoll_name} existiert nicht!
+    ${response}=    Execute Magik Command    ${dscoll}.external_name
+    Should Match Regexp    ${response}   ${external_name_refexp}
+
+Pruefe Existenz des Tabellenfeld
+    [Arguments]    ${dscoll_name}    ${fname_internal}    ${fname_external_refexp} 
+    ${dscoll}=    Get DsCollection    ${dscoll_name}
+    ${dsfield}=    Store Magik Object    dsfield    ${dscoll}.field(:${fname_internal})
+    ${response}=    Execute Magik Command    ${dsfield}
+    Should Not Be Equal    'unset'    '${response}'    Tabellenfeld ${CLI_DSVIEW_NAME}.${dscoll_name}.${fname_internal} existiert nicht!
+    ${response}=    Execute Magik Command    ${dsfield}.external_name
+    Should Match Regexp    ${response}   ${fname_external_refexp}
+

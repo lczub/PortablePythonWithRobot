@@ -1,6 +1,6 @@
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 :: The MIT License (MIT)
-:: Copyright (c) 2014 Luiko Czub
+:: Copyright (c) 2007 Perica Zivkovic, 2014 Luiko Czub
  
 :: Permission is hereby granted, free of charge, to any person obtaining a 
 :: copy of this software and associated documentation files (the "Software"), 
@@ -19,25 +19,39 @@
 :: WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 :: CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-:: http://PortablePython.com
+:: http://PortablePython.com, https://github.com/lczub/PortablePythonWithRobot
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :: general PP 2.7 settings
-set PP_BASE=%~dp0..\2.7
+set PP_ROBOT=%~dp0
+set PP_BASE=%PP_ROBOT%..\2.7
 call %PP_BASE%\settings.bat
 
 :: robot spezific settings
 set PY_VERSION=275
-set PP_VERSION=2.0.1
+set PP_VERSION=2.0.2
 set PY_SHORT_VERSION=27
 rem set TEMP=%~dp0..\build
 
 :: Robot Editor RIDE does not work with wxPython 2.9.*, what is installed with PortablePython 2.7 
 :: details see https://github.com/robotframework/RIDE/wiki/Installation-Instructions#id10
 :: RIDE requires wxPython 2.8.*
-
 set WXPYTHON_DOWNLOAD="http://sourceforge.net/projects/wxpython/files/wxPython/2.8.12.1/wxPython2.8-win32-unicode-2.8.12.1-py27.exe"
 set WXPYTHON_FILE=wxPython2.8-win32-unicode-2.8.12.1-py27.exe
 set WXPYTHON_MD5=895ba07ea6c05fcdbc273a921bad787b
 
+:: RobotDemo-<date>.zip package 
+set PPR_ROBOTDEMO_DOWNLOAD="https://bitbucket.org/robotframework/robotdemo/downloads/RobotDemo-20130319.zip"
+set PPR_ROBOTDEMO_FILE=RobotDemo-20130319.zip
+set PPR_ROBOTDEMO_MD5=02db401d01129f6d6e461f9709f40b52
+
+:: WebDemo-<date>.zip package 
+set PPR_WEBDEMO_DOWNLOAD="https://bitbucket.org/robotframework/webdemo/downloads/WebDemo-20130308.zip"
+set PPR_WEBDEMO_FILE=WebDemo-20130308.zip
+set PPR_WEBDEMO_MD5=894cbd787c0849d1836ed736f4b1913a
+
+:: Robot Framework Magik (Smallworld GIS)
+set PPR_ROBOTMAGIK_DOWNLOAD="https://github.com/lczub/robotframework-magik/releases/download/v0.3.1/robotframework-magik-0.3.1-31.zip"
+set PPR_ROBOTMAGIK_FILE=robotframework-magik-0.3.1-31.zip
+set PPR_ROBOTMAGIK_MD5=7a7d99a5365792f9becb06ee087ef0d4
 

@@ -1,6 +1,6 @@
 ; =================================================================
 ; The MIT License (MIT)
-; Copyright (c) 2007 Perica Zivkovic
+; Copyright (c) 2007 Perica Zivkovic, 2014 Luiko Czub
  
 ; Permission is hereby granted, free of charge, to any person obtaining a copy 
 ; of this software and associated documentation files (the "Software"), to deal 
@@ -20,7 +20,7 @@
 ; ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR 
 ; OTHER DEALINGS IN THE SOFTWARE.
 
-; http://PortablePython.com
+; http://PortablePython.com, https://github.com/lczub/PortablePythonWithRobot
 ; =================================================================
 
 InstType "Full"
@@ -28,6 +28,7 @@ InstType "Minimal"
 InstType "Ride"
 
 Section "!Python 2.7.5 core" PYTHON_CORE
+	AddSize 16400
 	SectionIn 1 2 3 RO
 	SetOutPath "$INSTDIR"
 	File /r "${SOURCESFOLDER}\python-core\*.*"
@@ -86,6 +87,7 @@ SectionGroup "Modules"
 	SectionEnd
 */
 	Section "wxPython 2.8.12.1 UniCode" MODULE_WXPYTHON
+		AddSize 2200
 		SectionIn 1 3
 		SetOutPath "$INSTDIR\App\"
 		File /r "${SOURCESFOLDER}\wxpython\package\*.*"
@@ -154,15 +156,25 @@ SectionGroupEnd
 SectionGroup "Robot `pip` packages"
 	
     Section "robotframework"  PIP_MODULE_ROBOT
+		AddSize 3900
         SectionIn 1 2 3 RO
         ; nsExec::ExecToLog '$Pip install robotframework'
         nsExec::ExecToLog '$Pip install robotframework'
+		
+		SetOutPath "$INSTDIR\"
+		File "${SOURCESFOLDER}\robot_scripts\README.*"
+		SetOutPath "$INSTDIR\robot"
+		File "${SOURCESFOLDER}\robot_scripts\robot\setenv_robot_general.bat"
+
     SectionEnd
 
     Section "robotframework-selenium2library"  PIP_MODULE_ROBOT_SELENIUM2LIB
+		AddSize 7900
         SectionIn 1
         nsExec::ExecToLog '$Pip install robotframework-selenium2library'
     SectionEnd
+	
+	
 	
 SectionGroupEnd
 
@@ -175,9 +187,54 @@ SectionGroup "Code editors"
 	; SectionEnd
 	
     Section "robotframework-ride (via pip)"  PIP_MODULE_ROBOT_RIDE
+		AddSize 11000
         SectionIn 1 3
         nsExec::ExecToLog '$Pip install robotframework-ride'
     SectionEnd
+SectionGroupEnd
+
+SectionGroup "other test libraries"
+
+    Section "robotframework-magik"  LIBRARY_ROBOT_MAGIK
+		AddSize 300
+        SectionIn 1
+		SetOutPath "$INSTDIR\robot"
+		File /r "${SOURCESFOLDER}\robot_scripts\robot\robotframework-magik"
+   SectionEnd
+	
+SectionGroupEnd
+
+SectionGroup "Robot examples"
+	
+    Section "Robot Framework Demo"
+		AddSize 32
+        SectionIn 1
+		SetOutPath "$INSTDIR"
+		File "${SOURCESFOLDER}\robot_scripts\*robotdemo*.bat"
+		SetOutPath "$INSTDIR\robot"
+		File /r "${SOURCESFOLDER}\robot_scripts\robot\RobotDemo"
+
+    SectionEnd
+
+    Section "Robot Web Demo"
+		AddSize 40
+        SectionIn 1
+		SetOutPath "$INSTDIR"
+		File "${SOURCESFOLDER}\robot_scripts\*webdemo*.bat"
+		SetOutPath "$INSTDIR\robot"
+		File /r "${SOURCESFOLDER}\robot_scripts\robot\WebDemo"
+    SectionEnd
+
+    Section "Robot Smallworld Magik Demo"
+		AddSize 8
+        SectionIn 1
+		SetOutPath "$INSTDIR"
+		File "${SOURCESFOLDER}\robot_scripts\*magik*.bat"
+		File /r "${SOURCESFOLDER}\robot_scripts\MyMagikTests"
+		SetOutPath "$INSTDIR\robot"
+		File "${SOURCESFOLDER}\robot_scripts\robot\setenv_robot_magik.bat"
+    SectionEnd
+	
 SectionGroupEnd
 
 

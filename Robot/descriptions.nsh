@@ -1,6 +1,6 @@
 ; =================================================================
 ; The MIT License (MIT)
-; Copyright (c) 2007 Perica Zivkovic
+; Copyright (c) 2007 Perica Zivkovic, 2014 Luiko Czub
  
 ; Permission is hereby granted, free of charge, to any person obtaining a copy 
 ; of this software and associated documentation files (the "Software"), to deal 
@@ -20,7 +20,7 @@
 ; ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR 
 ; OTHER DEALINGS IN THE SOFTWARE.
 
-; http://PortablePython.com
+; http://PortablePython.com, https://github.com/lczub/PortablePythonWithRobot
 ; =================================================================
 
 ; This file keeps generic module descriptions. 
@@ -49,6 +49,7 @@ LangString DESC_MODULE_WXPYTHON ${LANG_ENGLISH} "wxPython is a GUI toolkit for t
 LangString DESC_PIP_MODULE_ROBOT ${LANG_ENGLISH} "Robot Framework is a generic test automation framework for acceptance testing and acceptance test-driven development (ATDD)."
 LangString DESC_PIP_MODULE_ROBOT_SELENIUM2LIB ${LANG_ENGLISH} "Selenium2Library is a web testing library for Robot Framework that leverages the Selenium 2 (WebDriver) libraries from the Selenium project. It is modeled after (and forked from) the SeleniumLibrary library, but re-implemented to use Selenium 2 and WebDriver technologies."
 LangString DESC_PIP_MODULE_ROBOT_RIDE ${LANG_ENGLISH} "RIDE is a light-weight and intuitive editor for Robot Framework test case files."
+LangString DESC_LIBRARY_ROBOT_MAGIK  ${LANG_ENGLISH} "Robot Framework high level keywords for automated testing Smallworld Magik images and Python scripts to start and stop Smallworld Images with a remote_cli."
 
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
   !insertmacro MUI_DESCRIPTION_TEXT ${PYTHON_CORE} $(DESC_PYTHON_CORE)
@@ -74,4 +75,5 @@ LangString DESC_PIP_MODULE_ROBOT_RIDE ${LANG_ENGLISH} "RIDE is a light-weight an
   !insertmacro MUI_DESCRIPTION_TEXT ${PIP_MODULE_ROBOT} $(DESC_PIP_MODULE_ROBOT)
   !insertmacro MUI_DESCRIPTION_TEXT ${PIP_MODULE_ROBOT_SELENIUM2LIB} $(DESC_PIP_MODULE_ROBOT_SELENIUM2LIB)
   !insertmacro MUI_DESCRIPTION_TEXT ${PIP_MODULE_ROBOT_RIDE} $(DESC_PIP_MODULE_ROBOT_RIDE)
+  !insertmacro MUI_DESCRIPTION_TEXT ${LIBRARY_ROBOT_MAGIK} $(DESC_LIBRARY_ROBOT_MAGIK)
 !insertmacro MUI_FUNCTION_DESCRIPTION_END

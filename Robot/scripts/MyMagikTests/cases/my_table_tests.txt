@@ -1,0 +1,41 @@
+#  Copyright 2012 Luiko Czub, Smallcases GmbH
+#
+#  Place to define own data dictionary tests
+
+
+*** Settings ***
+Documentation    Example for data dictionary test cases
+Resource    ../resources/my_table_keywords.txt
+Suite Setup    Run Keywords    Open Magik Connection    Prepare Magik Image    Prepair MyDsView
+Suite Teardown    Run Keywords    Cleanup MyDsView    Clean Magik Image    Close Magik Connection
+Force Tags    MyTableTest    DataDictionaryTest
+
+
+*** Variables ***
+${CLI_DSVIEW_NAME}=    ace
+
+*** Keywords ***
+Prepair MyDsView
+    Get DsView    ${CLI_DSVIEW_NAME}
+	
+Cleanup MyDsView
+    Rollback DsView    ${CLI_DSVIEW_NAME}
+
+*** Test Cases ***
+Test existiert Test-Tabelle nicht
+    [Tags]    NegativTest
+    Pruefe Existenz der Tabelle	sc_test_table    "SC Test Table"
+ 	
+Test existiert Test-Tabellen-Feld nicht
+    [Tags]    NegativTest
+    Pruefe Existenz des Tabellenfeld    sw_gis!datamodel_history    sc_test_fname    "SC Test FNAME"	
+	
+Test existieren Datamodel Tabellen
+    [Template]    Pruefe Existenz der Tabelle
+    sw_gis!datamodel_history    atamodel.*istory
+    sw_gis!database_upgrade    atabase.*upgra
+
+Test existieren Tabellenfelder - Datamodel History
+    [Template]    Pruefe Existenz des Tabellenfeld
+    sw_gis!datamodel_history    product_name    roduct.*ame
+    sw_gis!datamodel_history    datamodel_name    atamodel.*ame
