@@ -1,3 +1,8 @@
+## Fork of Portable Python development pages
+Target is the build of a [Robot Framework](http://robotframework.org/) environment , runnable directly from any USB storage device, local or network location (on MS Window systems). Details see [Robot/scripts/README.rst](Robot/scripts/README.rst)
+
+Build command is `build Robot`
+
 ## Portable Python development pages
 ==============
 
