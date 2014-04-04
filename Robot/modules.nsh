@@ -46,7 +46,7 @@ Section "!Python 2.7.5 core" PYTHON_CORE
 	nsExec::ExecToLog '$EasyInstall pip'
 SectionEnd
 
-SectionGroup "Modules"
+SectionGroup "Python Modules"
 /* 
 	Section "NumPy 1.7.1" MODULE_NUMPY
 		SectionIn 1
@@ -193,7 +193,7 @@ SectionGroup "Code editors"
     SectionEnd
 SectionGroupEnd
 
-SectionGroup "other test libraries"
+SectionGroup "Test Libraries (non pip)"
 
     Section "robotframework-magik"  LIBRARY_ROBOT_MAGIK
 		AddSize 300
@@ -204,11 +204,11 @@ SectionGroup "other test libraries"
 	
 SectionGroupEnd
 
-SectionGroup "Robot examples"
+SectionGroup "Examples"
 	
     Section "Robot Framework Demo"
 		AddSize 32
-        SectionIn 1
+        SectionIn 1 2 3
 		SetOutPath "$INSTDIR"
 		File "${SOURCESFOLDER}\robot_scripts\*robotdemo*.bat"
 		SetOutPath "$INSTDIR\robot"
@@ -237,4 +237,26 @@ SectionGroup "Robot examples"
 	
 SectionGroupEnd
 
+SectionGroup "Documentations"
+	
+    Section "UserGuide Robot Framework"
+		AddSize 4000
+        SectionIn 1 2 3
+		SetOutPath "$INSTDIR\robot\docs\"
+		File /r "${SOURCESFOLDER}\robot_scripts\robot\docs\robotframework-userguide*"
+    SectionEnd
 
+	Section "Keywords selenium2library"
+		AddSize 200
+        SectionIn 1
+		SetOutPath "$INSTDIR\robot\docs\"
+		File "${SOURCESFOLDER}\robot_scripts\robot\docs\Selenium2Library*"
+    SectionEnd
+	
+	Section "Keywords robotframework-magik"
+		AddSize 200
+        SectionIn 1
+		CopyFiles "$INSTDIR\robot\robotframework-magik\doc\*.html" "$INSTDIR\robot\docs\"
+    SectionEnd
+
+SectionGroupEnd

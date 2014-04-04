@@ -34,6 +34,8 @@ call :UnpackRobotScripts
 call :UnpackRobotDemo
 call :UnpackWebDemo
 call :UnpackRobotMagik
+call :UnpackRobotUserGuide
+call :UnpackKeywordsSelenium2Lib
 
 goto:EOF
 
@@ -49,7 +51,7 @@ goto:EOF
 ::       uses wget option '-O output file' instead '-P output dir'
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 setlocal ENABLEEXTENSIONS
-call :ExtractFileName "%~2"
+call COMMON :ExtractFileName "%~2"
 
 tools\wget\wget.exe --no-check-certificate -nv -q -N -O "%BIN_FOLDER%\%~2" "%~1" 2>NUL
 endlocal&goto :EOF
@@ -90,7 +92,7 @@ call COMMON :VerifyFile %PPR_ROBOTDEMO_FILE% MD5 %PPR_ROBOTDEMO_MD5%
 
 :: Unpack files
 call COMMON :LogMessage "Extracting RobotDemo files"
-tools\uniextract16\UniExtract.exe "%BIN_FOLDER%\%PPR_ROBOTDEMO_FILE%" %UNPACK_FOLDER%\robot_scripts\robot >NUL
+tools\uniextract16\UniExtract.exe "%BIN_FOLDER%\%PPR_ROBOTDEMO_FILE%" "%UNPACK_FOLDER%\robot_scripts\robot" >NUL
 
 endlocal&goto :EOF
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -113,7 +115,7 @@ call COMMON :VerifyFile %PPR_WEBDEMO_FILE% MD5 %PPR_WEBDEMO_MD5%
 
 :: Unpack files
 call COMMON :LogMessage "Extracting WebDemo files"
-tools\uniextract16\UniExtract.exe "%BIN_FOLDER%\%PPR_WEBDEMO_FILE%" %UNPACK_FOLDER%\robot_scripts\robot >NUL
+tools\uniextract16\UniExtract.exe "%BIN_FOLDER%\%PPR_WEBDEMO_FILE%" "%UNPACK_FOLDER%\robot_scripts\robot" >NUL
 
 endlocal&goto :EOF
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -137,7 +139,50 @@ call COMMON :VerifyFile %PPR_ROBOTMAGIK_FILE% MD5 %PPR_ROBOTMAGIK_MD5%
 
 :: Unpack files
 call COMMON :LogMessage "Extracting Robot Framework Magik files"
-tools\uniextract16\UniExtract.exe "%BIN_FOLDER%\%PPR_ROBOTMAGIK_FILE%" %UNPACK_FOLDER%\robot_scripts\robot\robotframework-magik >NUL
+tools\uniextract16\UniExtract.exe "%BIN_FOLDER%\%PPR_ROBOTMAGIK_FILE%" "%UNPACK_FOLDER%\robot_scripts\robot\robotframework-magik" >NUL
+
+endlocal&goto :EOF
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:UnpackRobotUserGuide
+::
+:: By:   Luiko Czub
+:: Func: Download and extract robotframework-userguide-<version>.zip
+:: Args: none
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+setlocal ENABLEEXTENSIONS
+
+:: Download robotframework-userguide-<version>.zip
+call COMMON :DownloadFile %PPR_ROBOTUSERGUIDE_DOWNLOAD%
+REM call :DownloadFileAndRename %PPR_ROBOTUSERGUIDE_DOWNLOAD% %PPR_ROBOTUSERGUIDE_FILE%
+
+:: Verify 
+call COMMON :VerifyFile %PPR_ROBOTUSERGUIDE_FILE% MD5 %PPR_ROBOTUSERGUIDE_MD5%
+
+:: Unpack files
+call COMMON :LogMessage "Extracting Robot Framework User Guide files"
+tools\uniextract16\UniExtract.exe "%BIN_FOLDER%\%PPR_ROBOTUSERGUIDE_FILE%" "%UNPACK_FOLDER%\robot_scripts\robot\docs" >NUL
+
+endlocal&goto :EOF
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:UnpackKeywordsSelenium2Lib
+::
+:: By:   Luiko Czub
+:: Func: Download keywords Selenium2Library.html
+:: Args: none
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+setlocal ENABLEEXTENSIONS
+
+:: Download robotframework-userguide-<version>.zip
+call COMMON :DownloadFile %PPR_ROBOTDOCSEL2LIB_DOWNLOAD%
+REM call :DownloadFileAndRename %PPR_ROBOTUSERGUIDE_DOWNLOAD% %PPR_ROBOTUSERGUIDE_FILE%
+
+:: Copy shortcut
+call COMMON :LogMessage "Copy keywords Selenium2Library.html"
+copy "%BIN_FOLDER%\%PPR_ROBOTDOCSEL2LIB_FILE%" "%UNPACK_FOLDER%\robot_scripts\robot\docs" 1>NUL
 
 endlocal&goto :EOF
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::

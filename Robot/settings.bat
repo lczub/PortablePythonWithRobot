@@ -55,3 +55,12 @@ set PPR_ROBOTMAGIK_DOWNLOAD="https://github.com/lczub/robotframework-magik/relea
 set PPR_ROBOTMAGIK_FILE=robotframework-magik-0.3.1-31.zip
 set PPR_ROBOTMAGIK_MD5=7a7d99a5365792f9becb06ee087ef0d4
 
+:: Robot Framework User Guide
+set PPR_ROBOTUSERGUIDE_DOWNLOAD=https://dl.dropboxusercontent.com/s/hoq4nk2xw53lwvu/robotframework-userguide-2.8.4.zip
+set PPR_ROBOTUSERGUIDE_FILE=robotframework-userguide-2.8.4.zip
+set PPR_ROBOTUSERGUIDE_MD5=b0ea118091156512f8e826a51fbca086
+
+:: Keyword Documentation Selenium 2 (WebDriver) library for Robot Framework
+set PPR_ROBOTDOCSEL2LIB_DOWNLOAD=http://rtomac.github.com/robotframework-selenium2library/doc/Selenium2Library.html
+set PPR_ROBOTDOCSEL2LIB_FILE=Selenium2Library.html
+REM set PPR_ROBOTDOCSEL2LIB_MD5=
