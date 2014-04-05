@@ -174,8 +174,6 @@ SectionGroup "Robot `pip` packages"
         nsExec::ExecToLog '$Pip install robotframework-selenium2library'
     SectionEnd
 	
-	
-	
 SectionGroupEnd
 
 SectionGroup "Code editors"
@@ -191,6 +189,13 @@ SectionGroup "Code editors"
         SectionIn 1 3
         nsExec::ExecToLog '$Pip install robotframework-ride'
     SectionEnd
+	Section "Robot Emacs Mode"
+		SectionIn 1
+		SetOutPath "$INSTDIR\robot"
+		File /r "${SOURCESFOLDER}\robot_scripts\robot\robot-mode-master"
+	SectionEnd
+	
+	
 SectionGroupEnd
 
 SectionGroup "Test Libraries (non pip)"

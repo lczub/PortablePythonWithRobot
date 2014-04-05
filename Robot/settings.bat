@@ -64,3 +64,8 @@ set PPR_ROBOTUSERGUIDE_MD5=b0ea118091156512f8e826a51fbca086
 set PPR_ROBOTDOCSEL2LIB_DOWNLOAD=http://rtomac.github.com/robotframework-selenium2library/doc/Selenium2Library.html
 set PPR_ROBOTDOCSEL2LIB_FILE=Selenium2Library.html
 REM set PPR_ROBOTDOCSEL2LIB_MD5=
+
+:: Robot Emacs Mode
+set PPR_ROBOTEMACS_DOWNLOAD=https://github.com/sakari/robot-mode/archive/master.zip
+set PPR_ROBOTEMACS_FILE=robot-mode-master.zip
+set PPR_ROBOTEMACS_MD5=f958a56674e99a64ac0b102c120f5204

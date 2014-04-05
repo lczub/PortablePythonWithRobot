@@ -36,6 +36,7 @@ call :UnpackWebDemo
 call :UnpackRobotMagik
 call :UnpackRobotUserGuide
 call :UnpackKeywordsSelenium2Lib
+call :UnpackRobotEmacsMode
 
 goto:EOF
 
@@ -183,6 +184,29 @@ REM call :DownloadFileAndRename %PPR_ROBOTUSERGUIDE_DOWNLOAD% %PPR_ROBOTUSERGUID
 :: Copy shortcut
 call COMMON :LogMessage "Copy keywords Selenium2Library.html"
 copy "%BIN_FOLDER%\%PPR_ROBOTDOCSEL2LIB_FILE%" "%UNPACK_FOLDER%\robot_scripts\robot\docs" 1>NUL
+
+endlocal&goto :EOF
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:UnpackRobotEmacsMode
+::
+:: By:   Luiko Czub
+:: Func: Download and extract robot-mode-master.zip
+:: Args: none
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+setlocal ENABLEEXTENSIONS
+
+:: Download robot-mode-master.zip
+REM call COMMON :DownloadFile %PPR_ROBOTEMACS_DOWNLOAD%
+call :DownloadFileAndRename %PPR_ROBOTEMACS_DOWNLOAD% %PPR_ROBOTEMACS_FILE%
+
+:: Verify 
+call COMMON :VerifyFile %PPR_ROBOTEMACS_FILE% MD5 %PPR_ROBOTEMACS_MD5%
+
+:: Unpack files
+call COMMON :LogMessage "Extracting Robot Emacs Mode"
+tools\uniextract16\UniExtract.exe "%BIN_FOLDER%\%PPR_ROBOTEMACS_FILE%" "%UNPACK_FOLDER%\robot_scripts\robot" >NUL
 
 endlocal&goto :EOF
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
