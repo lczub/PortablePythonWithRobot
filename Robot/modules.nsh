@@ -27,7 +27,7 @@ InstType "Full"
 InstType "Minimal"
 InstType "Ride"
 
-Section "!Python 2.7.5 core" PYTHON_CORE
+Section "!Python 2.7.6 core" PYTHON_CORE
 	AddSize 16400
 	SectionIn 1 2 3 RO
 	SetOutPath "$INSTDIR"
@@ -48,12 +48,12 @@ SectionEnd
 
 SectionGroup "Python Modules"
 /* 
-	Section "NumPy 1.7.1" MODULE_NUMPY
+	Section "NumPy 1.8.1" MODULE_NUMPY
 		SectionIn 1
 		SetOutPath "$INSTDIR\App\Lib\site-packages\"
 		File /r "${SOURCESFOLDER}\numpy\PLATLIB\*.*"
 	SectionEnd
-	Section "SciPy 0.12.0" MODULE_SCIPY
+	Section "SciPy 0.13.3" MODULE_SCIPY
 		SectionIn 1
 		SetOutPath "$INSTDIR\App\Lib\site-packages\"
 		File /r "${SOURCESFOLDER}\scipy\PLATLIB\*.*"
@@ -68,12 +68,12 @@ SectionGroup "Python Modules"
 		SetOutPath "$INSTDIR\App\Lib\site-packages\networkx\"
 		File /r "${SOURCESFOLDER}\networkx\networkx\*.*"
 	SectionEnd
-	Section "Django 1.5.1" MODULE_DJANGO
+	Section "Django 1.6.2" MODULE_DJANGO
 		SectionIn 1
 		SetOutPath "$INSTDIR\App\Lib\site-packages\django\"
-		File /r "${SOURCESFOLDER}\django\Django-1.5.1\django\*.*"
+		File /r "${SOURCESFOLDER}\django\Django-1.6.2\django\*.*"
 		SetOutPath "$INSTDIR\App\Scripts"
-		File "${SOURCESFOLDER}\django\Django-1.5.1\django\bin\django-admin.py"
+		File "${SOURCESFOLDER}\django\Django-1.6.2\django\bin\django-admin.py"
 	SectionEnd
 	Section "PIL 1.1.7" MODULE_PIL
 		SectionIn 1
@@ -84,8 +84,7 @@ SectionGroup "Python Modules"
 		SectionIn 1
 		SetOutPath "$INSTDIR\App\Lib\site-packages\"
 		File /r "${SOURCESFOLDER}\py2exe\PLATLIB\*.*"
-	SectionEnd
-*/
+	SectionEnd*/
 	Section "wxPython 2.8.12.1 UniCode" MODULE_WXPYTHON
 		AddSize 2200
 		SectionIn 1 3
@@ -93,22 +92,22 @@ SectionGroup "Python Modules"
 		File /r "${SOURCESFOLDER}\wxpython\package\*.*"
 	SectionEnd
 /* 
-	Section "matplotlib 1.2.1" MODULE_MATPLOTLIB
+	Section "matplotlib 1.3.1" MODULE_MATPLOTLIB
 		SectionIn 1
 		SetOutPath "$INSTDIR\App\Lib\site-packages\"
 		File /r "${SOURCESFOLDER}\matplotlib\PLATLIB\*.*"
 	SectionEnd
-	Section "lxml 2.3" MODULE_LXML
+	Section "lxml 3.3.4" MODULE_LXML
 		SectionIn 1
 		SetOutPath "$INSTDIR\App\Lib\site-packages\"
 		File /r "${SOURCESFOLDER}\lxml\PLATLIB\*.*"
 	SectionEnd
-	Section "PySerial 2.5" MODULE_PY_SERIAL
+	Section "PySerial 2.7" MODULE_PY_SERIAL
 		SectionIn 1
 		SetOutPath "$INSTDIR\App\Lib\site-packages\"
 		File /r "${SOURCESFOLDER}\pyserial\PURELIB\*.*"
 	SectionEnd
-	Section "PyODBC 3.0.6" MODULE_PYODBC
+	Section "PyODBC 3.0.7" MODULE_PYODBC
 		SectionIn 1
 		SetOutPath "$INSTDIR\App\Lib\site-packages\"
 		File /r "${SOURCESFOLDER}\pyodbc\PLATLIB\*.*"
@@ -125,7 +124,7 @@ SectionGroup "Python Modules"
 		SetOutPath "$INSTDIR"
 		File "${SOURCESFOLDER}\Glade3-Portable.exe"
 	SectionEnd
-	Section "PyQT 4.10.1" MODULE_PYQT
+	Section "PyQT 4.10.4" MODULE_PYQT
 		SectionIn 1
 		SetOutPath "$INSTDIR\App\Lib\"
 		File /r "${SOURCESFOLDER}\pyqt\Lib\*.*"
@@ -136,20 +135,55 @@ SectionGroup "Python Modules"
 		SetOutPath "$INSTDIR"
 		File "${SOURCESFOLDER}\QtDesigner-Portable.exe"
 	SectionEnd
-	Section "IPython 0.13.1" MODULE_IPYTHON
+	Section "IPython 1.2.1" MODULE_IPYTHON
 		SectionIn 1
 		SetOutPath "$INSTDIR\App\Lib\site-packages\IPython"
-		File /r "${SOURCESFOLDER}\ipython\IPython\*.*"
+		File /r "${SOURCESFOLDER}\ipython\\ipython-1.2.1\IPython\*.*"
 		SetOutPath "$INSTDIR\App\Lib\site-packages\"
 		File /r "${SOURCESFOLDER}\pyreadline\pyreadline-1.7.1\*.*"
 		SetOutPath "$INSTDIR"
 		File "${SOURCESFOLDER}\IPython-Portable.exe"
 	SectionEnd
-	Section "Pandas 0.11.0" MODULE_PANDAS
+	Section "Pandas 0.13.1" MODULE_PANDAS
 		SectionIn 1
 		SetOutPath "$INSTDIR\App\Lib\site-packages\"
 		File /r "${SOURCESFOLDER}\pandas\PLATLIB\*.*"
 	SectionEnd 
+	Section "Dateutil 2.2" MODULE_DATEUTIL
+		SectionIn 1
+		SetOutPath "$INSTDIR\App\Lib\site-packages\dateutil\"
+		File /r "${SOURCESFOLDER}\dateutil\python-dateutil-2.2\dateutil\*.*"
+	SectionEnd 
+	Section "PyParsing 2.0.1" MODULE_PYPARSING
+		SectionIn 1
+		SetOutPath "$INSTDIR\App\Lib\site-packages\"
+		File /r "${SOURCESFOLDER}\pyparsing\PURELIB\*.*"
+	SectionEnd
+	Section "Six 1.6.1" MODULE_SIX
+		SectionIn 1
+		SetOutPath "$INSTDIR\App\Lib\site-packages\"
+		File "${SOURCESFOLDER}\SIX\six-1.6.1\six.py"
+	SectionEnd 
+	Section "XLUtils 1.7.0" MODULE_XLUTILS
+		SectionIn 1
+		SetOutPath "$INSTDIR\App\Lib\site-packages\xlutils\"
+		File /r "${SOURCESFOLDER}\XLUTILS\xlutils-1.7.0\xlutils\*.*"
+	SectionEnd
+	Section "xlrd 0.9.2" MODULE_XLRD
+		SectionIn 1
+		SetOutPath "$INSTDIR\App\Lib\site-packages\xlrd\"
+		File /r "${SOURCESFOLDER}\xlrd\xlrd-0.9.2\xlrd\*.*"
+	SectionEnd
+	Section "xlwt 0.7.5" MODULE_XLWT
+		SectionIn 1
+		SetOutPath "$INSTDIR\App\Lib\site-packages\xlwt\"
+		File /r "${SOURCESFOLDER}\xlwt\xlwt-0.7.5\xlwt\*.*"
+	SectionEnd
+	Section "OpenPyXL 1.8.5" MODULE_OPENPYXL
+		SectionIn 1
+		SetOutPath "$INSTDIR\App\Lib\site-packages\openpyxl\"
+		File /r "${SOURCESFOLDER}\openpyxl\openpyxl-1.8.5\openpyxl\*.*"
+	SectionEnd
 */
 SectionGroupEnd
 
@@ -177,13 +211,20 @@ SectionGroup "Robot `pip` packages"
 SectionGroupEnd
 
 SectionGroup "Code editors"
-	; Section "PyScripter 2.5.3" IDE_PYSCRIPTER
-		; SectionIn 1
-		; SetOutPath "$INSTDIR"
-		; File /r "${SOURCESFOLDER}\PyScripter\*.*"
-		; File "${SOURCESFOLDER}\PyScripter-Portable.exe"
-	; SectionEnd
-	
+/*
+	Section "PyScripter 2.5.3" IDE_PYSCRIPTER
+		SectionIn 1
+		SetOutPath "$INSTDIR"
+		File /r "${SOURCESFOLDER}\PyScripter\*.*"
+		File "${SOURCESFOLDER}\PyScripter-Portable.exe"
+	SectionEnd
+	Section "PyCharm Community 3.1.2" IDE_PYCHARM
+		SectionIn 1
+		SetOutPath "$INSTDIR"
+		File /r "${SOURCESFOLDER}\PyCharm\*.*"
+		File "${SOURCESFOLDER}\PyCharm-Portable.exe"
+	SectionEnd	
+*/	
     Section "robotframework-ride (via pip)"  PIP_MODULE_ROBOT_RIDE
 		AddSize 11000
         SectionIn 1 3
@@ -265,3 +306,24 @@ SectionGroup "Documentations"
     SectionEnd
 
 SectionGroupEnd
+
+; Section dependencies
+/*
+Function .onSelChange
+	${Unless} ${SectionIsSelected} ${MODULE_DATEUTIL}
+        !insertmacro UnselectSection ${MODULE_MATPLOTLIB}
+	${EndIf}
+	${Unless} ${SectionIsSelected} ${MODULE_PYPARSING}
+        !insertmacro UnselectSection ${MODULE_MATPLOTLIB}
+	${EndIf}
+	${Unless} ${SectionIsSelected} ${MODULE_SIX}
+        !insertmacro UnselectSection ${MODULE_PANDAS}
+	${EndIf}
+	${Unless} ${SectionIsSelected} ${MODULE_XLRD}
+        !insertmacro UnselectSection ${MODULE_XLUTILS}
+	${EndIf}
+	${Unless} ${SectionIsSelected} ${MODULE_XLWT}
+        !insertmacro UnselectSection ${MODULE_XLUTILS}
+	${EndIf}		
+FunctionEnd
+*/

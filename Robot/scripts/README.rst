@@ -15,7 +15,7 @@ automation framework `Robot Framework`_
 Hope this helps you in your daily work in testing the interacting of Smallworld GIS with 
 web applications or other systems.
 
-Have fun with tests, 02. Apr. 2014
+Have fun with tests, 30. Apr. 2014
 `Luiko Czub`_, `Smallcases GmbH`_ 
 
 Directory Layout
@@ -54,7 +54,7 @@ Package Details
 
 ============= ============================ ============================
 Package Name  `Portable Python`_           Python_
-Version        2.7.5.1 (customized)        2.7.5 (32bit)
+Version        2.7.6.1 (customized)        2.7.6 (32bit)
 License       `MIT License`_               `Python License 2.0`_
 ============= ============================ ============================
 
