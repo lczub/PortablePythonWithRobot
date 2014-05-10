@@ -6,16 +6,19 @@ Intention
 =========
 
 This collection of open source software is a portable (standalone) installation of the test 
-automation framework `Robot Framework`_ - **PortablePythonWithRobot** (PPR).
+automation framework `Robot Framework`_.
 
-- with `standard test libraries`_ and the `RIDE`_ test data editor 
+It is named **PortablePythonWithRobot** (PPR) and includes
+
+- the `Portable Python`_ core
+- the `Robot Framework`_ `standard test libraries`_ and `RIDE`_ test data editor 
 - the `Selenium2Library`_ for web testing and 
 - the `Robot Framework Magik`_ extension for testing Smallworld Magik images.
 
 Hope this helps you in your daily work in testing the interacting of Smallworld GIS with 
 web applications or other systems.
 
-Have fun with tests, 10. May 2014
+Have fun with tests, 11. May 2014
 `Luiko Czub`_, `Smallcases GmbH`_ 
 
 Download & Installation
@@ -37,6 +40,9 @@ Directory Layout
 App/
     `Portable Python`_ installation with `Robot Framework`_, `Ride`_ and `Selenium2Library`_
 	
+logs/
+    default log directory
+
 robot/
     resources like `Robot Framework Magik`_, RobotDemo_, WebDemo_, `Robot Emacs Mode`_
 	

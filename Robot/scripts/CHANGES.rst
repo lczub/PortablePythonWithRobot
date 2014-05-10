@@ -1,7 +1,7 @@
 Changes in PortablePythonWithRobot Build environment
 ====================================================
 
-PortablePythonWithRobot v276.2.284.1 (under develop)
+PortablePythonWithRobot v276.2.284.1 (May. 2014)
 -----------------------------------------------------------
 
 bug fix release
@@ -19,6 +19,11 @@ starting Magik images aborts, when PPR install path name includes spaces #2
 Reason is, that the used Smallworld image launcher *gis.exe* has problems, when his command line argument *-run_script* is used with a path, which includes spaces. Using quote sign ("E:\T T\t.script") does not help. 
 
 As WorkAround, the used PPR default installation name is changed from *Portable Python Robot VERSION* to *Portable-Python-Robot-VERSION*. Also a hint *Known Problem* is added inside the README, that PPR should be installed in a path without spaces.
+
+start_magik_image.bat aborts, when PPR_ROBOT_LOG_DIR not exists #1 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+As WorkAround, the installer creates now an empty default log directory
 
 PortablePythonWithRobot v276.2.284.0 (May. 2014)
 -----------------------------------------------------------

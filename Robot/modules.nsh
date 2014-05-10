@@ -197,9 +197,12 @@ SectionGroup "Robot `pip` packages"
 		
 		SetOutPath "$INSTDIR\"
 		File "${SOURCESFOLDER}\robot_scripts\README.*"
+		File "${SOURCESFOLDER}\robot_scripts\CHANGES.*"
 		SetOutPath "$INSTDIR\robot"
 		File "${SOURCESFOLDER}\robot_scripts\robot\setenv_robot_general.bat"
-
+		
+		CreateDirectory "$INSTDIR\logs"
+		
     SectionEnd
 
     Section "robotframework-selenium2library"  PIP_MODULE_ROBOT_SELENIUM2LIB
