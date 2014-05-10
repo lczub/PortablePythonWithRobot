@@ -12,6 +12,13 @@ MyMagikTest does not find the robot magik resources #3
 - resource *MyMagikTests\\resources\\my_table_keywords.txt* references wrong environment variables
 - new script *ride_magik_example_robot_test.bat* shows, how Magik tests could be edit and execute
   with RIDE editor
+  
+starting Magik images aborts, when PPR install path name includes spaces #2 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Reason is, that the used Smallworld image launcher *gis.exe* has problems, when his command line argument *-run_script* is used with a path, which includes spaces. Using quote sign ("E:\T T\t.script") does not help. 
+
+As WorkAround, the used PPR default installation name is changed from *Portable Python Robot VERSION* to *Portable-Python-Robot-VERSION*. Also a hint *Known Problem* is added inside the README, that PPR should be installed in a path without spaces.
 
 PortablePythonWithRobot v276.2.284.0 (May. 2014)
 -----------------------------------------------------------

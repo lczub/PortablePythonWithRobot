@@ -6,7 +6,7 @@ Intention
 =========
 
 This collection of open source software is a portable (standalone) installation of the test 
-automation framework `Robot Framework`_
+automation framework `Robot Framework`_ - **PortablePythonWithRobot** (PPR).
 
 - with `standard test libraries`_ and the `RIDE`_ test data editor 
 - the `Selenium2Library`_ for web testing and 
@@ -18,12 +18,18 @@ web applications or other systems.
 Have fun with tests, 10. May 2014
 `Luiko Czub`_, `Smallcases GmbH`_ 
 
-Download
-========
+Download & Installation
+=======================
 
 The installer can be retrieved from `GitHup Releases`_.
 
 Changes are documented in `CHANGES <CHANGES.rst>`_.
+
+Known Problems
+--------------
+
+If PPR should be used to start and test Smallworld Magik images, please choose an installation path name without spaces. Details `issue 2 <https://github.com/lczub/PortablePythonWithRobot/issues/2>`_.
+
 
 Directory Layout
 ================

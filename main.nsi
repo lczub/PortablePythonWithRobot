@@ -32,7 +32,7 @@
 
 !define WEBSITE "PortablePython.com"
 !define VERSION "${PY_VERSION}.${PP_VERSION}"
-!define APPNAME "Portable Python ${PP_TYPE} ${VERSION}"
+!define APPNAME "Portable-Python-${PP_TYPE}-${VERSION}"
 !define OUTFILENAME "PortablePython${PP_TYPE}_${VERSION}.exe"
 !define OUTFOLDER "${OUTPUT_FOLDER}"
 !define SOURCESFOLDER "${SOURCES_FOLDER}"
