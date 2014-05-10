@@ -5,7 +5,7 @@
 
 *** Settings ***
 Documentation    Example extension of robot_magik_dsview keywords for data dictionary tests
-Resource    %{SC_ROBOT_MAGIK}/resources/robot_magik_dsview.txt
+Resource    %{PPR_ROBOT_MAGIK}/resources/robot_magik_dsview.txt
 
 *** Keywords ***
 Pruefe Existenz der Tabelle

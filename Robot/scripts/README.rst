@@ -1,6 +1,6 @@
-========================================
-Portable Python with Robot Framework
-========================================
+========================================================
+Portable Python with Robot Framework (for Magik testing)
+========================================================
 
 Intention
 =========
@@ -15,14 +15,15 @@ automation framework `Robot Framework`_
 Hope this helps you in your daily work in testing the interacting of Smallworld GIS with 
 web applications or other systems.
 
-Have fun with tests, 07. May 2014
+Have fun with tests, 10. May 2014
 `Luiko Czub`_, `Smallcases GmbH`_ 
 
 Download
 ========
 
-The installer can be retrieved either from SourceForge_ or `GitHup Releases`_    	
+The installer can be retrieved from `GitHup Releases`_.
 
+Changes are documented in `CHANGES <CHANGES.rst>`_.
 
 Directory Layout
 ================
@@ -111,5 +112,4 @@ This site is written in reStructuredText_ and converted into HTML with
 .. _GPL 3.0: http://www.gnu.org/licenses/gpl-3.0
 .. _reStructuredText: http://docutils.sourceforge.net/docs/user/rst/quickref.html
 .. _reStructuredText online renderer: http://www.hosting4u.cz/jbar/rest/rest.html
-.. _SourceForge: http://sourceforge.net/projects/portablepythonwithrobot/files/latest/download
 .. _GitHup Releases: https://github.com/lczub/PortablePythonWithRobot/releases
