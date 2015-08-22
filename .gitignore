@@ -11,3 +11,5 @@ build
 
 tools/nsis/*.chw
 
+.project
+

@@ -27,7 +27,7 @@ InstType "Full"
 InstType "Minimal"
 InstType "Ride"
 
-Section "!Python 2.7.6 core" PYTHON_CORE
+Section "!Python 2.7.10 core" PYTHON_CORE
 	AddSize 16400
 	SectionIn 1 2 3 RO
 	SetOutPath "$INSTDIR"
@@ -35,30 +35,22 @@ Section "!Python 2.7.6 core" PYTHON_CORE
 	File "${SOURCESFOLDER}\Python-Portable.exe"
 	File "${SOURCESFOLDER}\PythonW-Portable.exe"
 	File "${SOURCESFOLDER}\IDLE-Portable.exe"
-	
-	; pip installation is an extract from 
-	; https://github.com/wheeler-microfluidics/microdrop_portable_python_base/blob/microdrop/2.7/modules.nsh
-	; many thanks to Christian Frobel 
-	Var /GLOBAL EasyInstall
-	Var /GLOBAL Pip
-	StrCpy $EasyInstall '$INSTDIR\App\Scripts\easy_install.exe'
-	StrCpy $Pip '$INSTDIR\App\Scripts\pip.exe'
-	nsExec::ExecToLog '$EasyInstall pip'
+	File "${SOURCESFOLDER}\PortablePythonPrompt.cmd"
 SectionEnd
 
 SectionGroup "Python Modules"
 /* 
-	Section "NumPy 1.8.1" MODULE_NUMPY
+	Section "NumPy 1.9.2" MODULE_NUMPY
 		SectionIn 1
 		SetOutPath "$INSTDIR\App\Lib\site-packages\"
 		File /r "${SOURCESFOLDER}\numpy\PLATLIB\*.*"
 	SectionEnd
-	Section "SciPy 0.13.3" MODULE_SCIPY
+	Section "SciPy 0.15.1" MODULE_SCIPY
 		SectionIn 1
 		SetOutPath "$INSTDIR\App\Lib\site-packages\"
 		File /r "${SOURCESFOLDER}\scipy\PLATLIB\*.*"
 	SectionEnd
-	Section "PyWin32 218" MODULE_PYWIN32
+	Section "PyWin32 219" MODULE_PYWIN32
 		SectionIn 1
 		SetOutPath "$INSTDIR\App\"
 		File /r "${SOURCESFOLDER}\pywin32\*.*"
@@ -84,7 +76,8 @@ SectionGroup "Python Modules"
 		SectionIn 1
 		SetOutPath "$INSTDIR\App\Lib\site-packages\"
 		File /r "${SOURCESFOLDER}\py2exe\PLATLIB\*.*"
-	SectionEnd*/
+	SectionEnd
+*/
 	Section "wxPython 2.8.12.1 UniCode" MODULE_WXPYTHON
 		AddSize 2200
 		SectionIn 1 3
@@ -92,12 +85,12 @@ SectionGroup "Python Modules"
 		File /r "${SOURCESFOLDER}\wxpython\package\*.*"
 	SectionEnd
 /* 
-	Section "matplotlib 1.3.1" MODULE_MATPLOTLIB
+	Section "matplotlib 1.4.3" MODULE_MATPLOTLIB
 		SectionIn 1
 		SetOutPath "$INSTDIR\App\Lib\site-packages\"
 		File /r "${SOURCESFOLDER}\matplotlib\PLATLIB\*.*"
 	SectionEnd
-	Section "lxml 3.3.4" MODULE_LXML
+	Section "lxml 3.4.3" MODULE_LXML
 		SectionIn 1
 		SetOutPath "$INSTDIR\App\Lib\site-packages\"
 		File /r "${SOURCESFOLDER}\lxml\PLATLIB\*.*"
@@ -124,7 +117,7 @@ SectionGroup "Python Modules"
 		SetOutPath "$INSTDIR"
 		File "${SOURCESFOLDER}\Glade3-Portable.exe"
 	SectionEnd
-	Section "PyQT 4.10.4" MODULE_PYQT
+	Section "PyQT 4.11.3" MODULE_PYQT
 		SectionIn 1
 		SetOutPath "$INSTDIR\App\Lib\"
 		File /r "${SOURCESFOLDER}\pyqt\Lib\*.*"
@@ -144,10 +137,10 @@ SectionGroup "Python Modules"
 		SetOutPath "$INSTDIR"
 		File "${SOURCESFOLDER}\IPython-Portable.exe"
 	SectionEnd
-	Section "Pandas 0.13.1" MODULE_PANDAS
+	Section "Pandas 0.16.0" MODULE_PANDAS
 		SectionIn 1
 		SetOutPath "$INSTDIR\App\Lib\site-packages\"
-		File /r "${SOURCESFOLDER}\pandas\PLATLIB\*.*"
+		File /r "${SOURCESFOLDER}\pandas\*.*"
 	SectionEnd 
 	Section "Dateutil 2.2" MODULE_DATEUTIL
 		SectionIn 1
@@ -158,7 +151,7 @@ SectionGroup "Python Modules"
 		SectionIn 1
 		SetOutPath "$INSTDIR\App\Lib\site-packages\"
 		File /r "${SOURCESFOLDER}\pyparsing\PURELIB\*.*"
-	SectionEnd
+	SectionEnd 
 	Section "Six 1.6.1" MODULE_SIX
 		SectionIn 1
 		SetOutPath "$INSTDIR\App\Lib\site-packages\"
@@ -187,8 +180,64 @@ SectionGroup "Python Modules"
 */
 SectionGroupEnd
 
-SectionGroup "Robot `pip` packages"
+
+SectionGroup "Code editors"
+/*
+	Section "PyScripter 2.6.0" IDE_PYSCRIPTER
+		SectionIn 1
+		SetOutPath "$INSTDIR"
+		File /r "${SOURCESFOLDER}\PyScripter\*.*"
+		File "${SOURCESFOLDER}\PyScripter-Portable.exe"
+	SectionEnd
+*/	
+	Section "PyCharm Community 4.5.1" IDE_PYCHARM
+		SectionIn 1
+		SetOutPath "$INSTDIR"
+		File /r "${SOURCESFOLDER}\PyCharm\*.*"
+		File "${SOURCESFOLDER}\PyCharm-Portable.exe"
+	SectionEnd	
+	Section "Robot Emacs Mode"
+		SectionIn 1
+		SetOutPath "$INSTDIR\robot"
+		File /r "${SOURCESFOLDER}\robot_scripts\robot\robot-mode-master"
+	SectionEnd
 	
+SectionGroupEnd
+
+; pip section is an extract from 
+; https://github.com/wheeler-microfluidics/microdrop_portable_python_base/blob/microdrop/2.7/modules.nsh
+; many thanks to Christian Frobel for these piece of work
+
+SectionGroup "Robot `pip` packages"
+    Section "Prepare `easy_install` and `pip`"
+        Var /GLOBAL EasyInstall
+        Var /GLOBAL Pip
+        Var /GLOBAL PipInstallFlags
+        SectionIn 1 2 RO
+        StrCpy $EasyInstall '$INSTDIR\App\Scripts\easy_install.exe'
+        StrCpy $Pip '$INSTDIR\App\Scripts\pip.exe'
+        ; Use `--pre` argument to allow installation of [pre-release][1]
+        ; package versions.
+        ;
+        ; [1]: http://stackoverflow.com/questions/18230956/could-not-find-a-version-that-satisfies-the-requirement-pytz
+        StrCpy $PipInstallFlags ' --pre '
+    SectionEnd
+
+    Section "Install pip"
+        SectionIn 1 2 RO
+        nsExec::ExecToLog '$EasyInstall pip'
+    SectionEnd
+/*
+    Section "Install ipython"  PIP_MODULE_IPYTHON
+        ;SectionIn 1
+	    ;not in section 'full', cause IPython 0.13.1 already included
+		;this is just an example, how packges could be installed via pip
+		;known problem: 
+		; - with pip installed scripts App\Scripts\iXYZ-script.py incudes "hard coded" python path
+		; - if the pp installation moves, these paths must be adapted manually
+        nsExec::ExecToLog '$Pip install ipython $PipInstallFlags'
+    SectionEnd
+*/	
     Section "robotframework"  PIP_MODULE_ROBOT
 		AddSize 3900
         SectionIn 1 2 3 RO
@@ -210,35 +259,12 @@ SectionGroup "Robot `pip` packages"
         SectionIn 1
         nsExec::ExecToLog '$Pip install robotframework-selenium2library'
     SectionEnd
-	
-SectionGroupEnd
 
-SectionGroup "Code editors"
-/*
-	Section "PyScripter 2.5.3" IDE_PYSCRIPTER
-		SectionIn 1
-		SetOutPath "$INSTDIR"
-		File /r "${SOURCESFOLDER}\PyScripter\*.*"
-		File "${SOURCESFOLDER}\PyScripter-Portable.exe"
-	SectionEnd
-	Section "PyCharm Community 3.1.2" IDE_PYCHARM
-		SectionIn 1
-		SetOutPath "$INSTDIR"
-		File /r "${SOURCESFOLDER}\PyCharm\*.*"
-		File "${SOURCESFOLDER}\PyCharm-Portable.exe"
-	SectionEnd	
-*/	
     Section "robotframework-ride (via pip)"  PIP_MODULE_ROBOT_RIDE
 		AddSize 11000
         SectionIn 1 3
         nsExec::ExecToLog '$Pip install robotframework-ride'
     SectionEnd
-	Section "Robot Emacs Mode"
-		SectionIn 1
-		SetOutPath "$INSTDIR\robot"
-		File /r "${SOURCESFOLDER}\robot_scripts\robot\robot-mode-master"
-	SectionEnd
-	
 	
 SectionGroupEnd
 
