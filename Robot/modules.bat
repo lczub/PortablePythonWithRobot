@@ -26,7 +26,7 @@
 REM set COMMON=.\..\common.bat
 
 :: download and build required PP 2.7 packages
-call %PP_BASE%\modules.bat Python WxPython PyCharm
+call %PP_BASE%\modules.bat Python WxPython PyScripter
 
 REM call :UnpackRobot
 REM call :UnpackRide

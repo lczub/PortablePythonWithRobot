@@ -96,6 +96,7 @@ if not exist %TEMP_FOLDER% (
 call .\%PP_TYPE%\modules.bat 
 
 :: Build installer
+if %PP_TEST_NO_BUILD% == TRUE (goto:eof)
 call COMMON :LogMessage 
 call COMMON :LogMessage "Building Portable Python %PP_TYPE% %PY_VERSION%.%PP_VERSION% installer ..."
 tools\nsis\makensis /V0 /DPP_TYPE=%1 /DPY_VERSION=%PY_VERSION% /DPP_VERSION=%PP_VERSION% /DOUTPUT_FOLDER="%OUTPUT_FOLDER%" /DSOURCES_FOLDER="%UNPACK_FOLDER%" main.nsi

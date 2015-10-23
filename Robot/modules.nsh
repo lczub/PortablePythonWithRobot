@@ -182,20 +182,20 @@ SectionGroupEnd
 
 
 SectionGroup "Code editors"
-/*
 	Section "PyScripter 2.6.0" IDE_PYSCRIPTER
 		SectionIn 1
 		SetOutPath "$INSTDIR"
 		File /r "${SOURCESFOLDER}\PyScripter\*.*"
 		File "${SOURCESFOLDER}\PyScripter-Portable.exe"
 	SectionEnd
-*/	
+/*	
 	Section "PyCharm Community 4.5.1" IDE_PYCHARM
 		SectionIn 1
 		SetOutPath "$INSTDIR"
 		File /r "${SOURCESFOLDER}\PyCharm\*.*"
 		File "${SOURCESFOLDER}\PyCharm-Portable.exe"
 	SectionEnd	
+*/	
 	Section "Robot Emacs Mode"
 		SectionIn 1
 		SetOutPath "$INSTDIR\robot"
