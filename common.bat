@@ -88,7 +88,8 @@ endlocal&goto :EOF
 setlocal ENABLEEXTENSIONS
 call :ExtractFileName "%~1"
 
-tools\wget\wget.exe --no-check-certificate -nv -q -N -P "%BIN_FOLDER%" "%~1" 2>NUL
+tools\wget\wget.exe --no-check-certificate -N -P "%BIN_FOLDER%" "%~1"
+
 endlocal&goto :EOF
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 

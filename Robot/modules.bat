@@ -54,7 +54,9 @@ goto:EOF
 setlocal ENABLEEXTENSIONS
 call COMMON :ExtractFileName "%~2"
 
-tools\wget\wget.exe --no-check-certificate -nv -q -N -O "%BIN_FOLDER%\%~2" "%~1" 2>NUL
+if not exist "%BIN_FOLDER%\%~2" (
+	tools\wget\wget.exe --no-check-certificate -N -O "%BIN_FOLDER%\%~2" "%~1"
+ 	) ELSE ( echo "INFO: Will use already existing download of %~2" )
 endlocal&goto :EOF
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -86,7 +88,8 @@ endlocal&goto :EOF
 setlocal ENABLEEXTENSIONS
 
 :: Download RobotDemo-<date>.zip
-call COMMON :DownloadFile %PPR_ROBOTDEMO_DOWNLOAD%
+rem call COMMON :DownloadFile %PPR_ROBOTDEMO_DOWNLOAD%
+call :DownloadFileAndRename %PPR_ROBOTDEMO_DOWNLOAD% %PPR_ROBOTDEMO_FILE%
 
 :: Verify 
 call COMMON :VerifyFile %PPR_ROBOTDEMO_FILE% MD5 %PPR_ROBOTDEMO_MD5%
@@ -109,7 +112,8 @@ endlocal&goto :EOF
 setlocal ENABLEEXTENSIONS
 
 :: Download WebDemo-<date>.zip
-call COMMON :DownloadFile %PPR_WEBDEMO_DOWNLOAD%
+rem call COMMON :DownloadFile %PPR_WEBDEMO_DOWNLOAD%
+call :DownloadFileAndRename %PPR_WEBDEMO_DOWNLOAD% %PPR_WEBDEMO_FILE%
 
 :: Verify 
 call COMMON :VerifyFile %PPR_WEBDEMO_FILE% MD5 %PPR_WEBDEMO_MD5%

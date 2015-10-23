@@ -105,7 +105,7 @@ echo import sys >> "%UNPACK_FOLDER%\python-core\App\Lib\ppp.py"
 echo sys.ps1 = "Portable Python >>> " >> "%UNPACK_FOLDER%\python-core\App\Lib\ppp.py"
 
 :: Build Shortcut
-call COMMON :LogMessage "Build shortcut"
+call COMMON :LogMessage "Build shortcut DPY_VERSION=%PY_VERSION% DPP_VERSION=%PP_VERSION%"
 tools\nsis\makensis.exe /V0 /DSHORTCUTNAME=Python /DPY_VERSION=%PY_VERSION% /DPP_VERSION=%PP_VERSION% shortcuts\shortcut.nsi
 tools\nsis\makensis.exe /V0 /DSHORTCUTNAME=PythonW /DPY_VERSION=%PY_VERSION% /DPP_VERSION=%PP_VERSION% shortcuts\shortcut.nsi
 tools\nsis\makensis.exe /V0 /DSHORTCUTNAME=IDLE /DPY_VERSION=%PY_VERSION% /DPP_VERSION=%PP_VERSION% shortcuts\shortcut.nsi
@@ -116,6 +116,7 @@ copy shortcuts\Python-Portable.exe "%UNPACK_FOLDER%" 1>NUL
 copy shortcuts\PythonW-Portable.exe "%UNPACK_FOLDER%" 1>NUL
 copy shortcuts\IDLE-Portable.exe "%UNPACK_FOLDER%" 1>NUL
 copy shortcuts\PortablePythonPrompt.cmd "%UNPACK_FOLDER%" 1>NUL
+
 
 :: Fix
 call COMMON :FixMSCRT %UNPACK_FOLDER%\python-core\
