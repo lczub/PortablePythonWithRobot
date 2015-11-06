@@ -1,14 +1,15 @@
-<!--?xml version="1.0" encoding="utf-8" ?-->
+<?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="generator" content="Docutils 0.8.1: http://docutils.sourceforge.net/">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.12: http://docutils.sourceforge.net/" />
 <title>Portable Python with Robot Framework (for Magik testing)</title>
 <style type="text/css">
 
 /*
 :Author: David Goodger (goodger@python.org)
-:Id: $Id: html4css1.css 7056 2011-06-17 10:50:48Z milde $
+:Id: $Id: html4css1.css 7614 2013-02-21 15:55:51Z milde $
 :Copyright: This stylesheet has been placed in the public domain.
 
 Default cascading style sheet for the HTML output of Docutils.
@@ -76,7 +77,7 @@ div.tip p.admonition-title {
 
 div.attention p.admonition-title, div.caution p.admonition-title,
 div.danger p.admonition-title, div.error p.admonition-title,
-div.warning p.admonition-title {
+div.warning p.admonition-title, .code .error {
   color: red ;
   font-weight: bold ;
   font-family: sans-serif }
@@ -248,9 +249,18 @@ pre.address {
   margin-top: 0 ;
   font: inherit }
 
-pre.literal-block, pre.doctest-block, pre.math {
+pre.literal-block, pre.doctest-block, pre.math, pre.code {
   margin-left: 2em ;
   margin-right: 2em }
+
+pre.code .ln { color: grey; } /* line numbers */
+pre.code, code { background-color: #eeeeee }
+pre.code .comment, code .comment { color: #5C6576 }
+pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
+pre.code .literal.string, code .literal.string { color: #0C5404 }
+pre.code .name.builtin, code .name.builtin { color: #352B84 }
+pre.code .deleted, code .deleted { background-color: #DEB0A1}
+pre.code .inserted, code .inserted { background-color: #A3D289}
 
 span.classifier {
   font-family: sans-serif ;
@@ -303,6 +313,21 @@ table.docutils th.field-name, table.docinfo th.docinfo-name {
   white-space: nowrap ;
   padding-left: 0 }
 
+/* "booktabs" style (no vertical lines) */
+table.docutils.booktabs {
+  border: 0px;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-collapse: collapse;
+}
+table.docutils.booktabs * {
+  border: 0px;
+}
+table.docutils.booktabs th {
+  border-bottom: thin solid;
+  text-align: left;
+}
+
 h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
 h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
   font-size: 100% }
@@ -323,30 +348,31 @@ automation framework <a class="reference external" href="http://robotframework.o
 <p>It is named <strong>PortablePythonWithRobot</strong> (PPR) and includes</p>
 <ul class="simple">
 <li>the <a class="reference external" href="http://portablepython.com/">Portable Python</a> core</li>
-<li>the <a class="reference external" href="http://robotframework.org/">Robot Framework</a> <a class="reference external" href="http://robotframework.org/#test-libraries">standard test libraries</a> and <a class="reference external" href="https://github.com/robotframework/RIDE/wiki">RIDE</a> test data editor</li>
+<li>the <a class="reference external" href="http://robotframework.org/">Robot Framework</a> <a class="reference external" href="http://robotframework.org/#test-libraries">standard test libraries</a> and <a class="reference external" href="https://github.com/robotframework/RIDE/wiki/How-To">RIDE</a> test data editor</li>
 <li>the <a class="reference external" href="https://github.com/rtomac/robotframework-selenium2library/#readme">Selenium2Library</a> for web testing and</li>
 <li>the <a class="reference external" href="https://github.com/lczub/robotframework-magik/#readme">Robot Framework Magik</a> extension for testing Smallworld Magik images.</li>
+<li>the <a class="reference external" href="http://sourceforge.net/projects/pyscripter/">PyScripter</a>, a Python Integrated Development Environment (IDE)</li>
 </ul>
 <p>Hope this helps you in your daily work in testing the interacting of Smallworld GIS with
 web applications or other systems.</p>
-<p>Have fun with tests, 11. May 2014
-<a class="reference external" href="mailto://luiko.czub@smallcases.de">Luiko Czub</a>, <a class="reference external" href="http://www.smallcases.de/">Smallcases GmbH</a></p>
+<p>Have fun with tests, 06. Nov. 2015
+<a class="reference external" href="mailto://luiko.czub&#64;liegkat-archiv.de">Luiko Czub</a></p>
 </div>
 <div class="section" id="download-installation">
 <h1>Download &amp; Installation</h1>
-<p>The installer can be retrieved from <a class="reference external" href="https://github.com/lczub/PortablePythonWithRobot/releases">GitHup Releases</a>.</p>
+<p>The installer can be retrieved from <a class="reference external" href="https://github.com/lczub/PortablePythonWithRobot/releases">GitHup Releases</a> or <a class="reference external" href="http://sourceforge.net/projects/portablepythonwithrobot/">SourceForge</a>.</p>
 <p>Changes are documented in <a class="reference external" href="CHANGES.rst">CHANGES</a>.</p>
 <div class="section" id="known-problems">
 <h2>Known Problems</h2>
-<p>If PPR should be used to start and test Smallworld Magik images, 
-please choose an installation path name without spaces. Details <a class="reference external" href="https://github.com/lczub/PortablePythonWithRobot/issues/2">issue 2</a>.</p>
+<p>If PPR should be used to start and test Smallworld Magik images, please choose an installation path name without spaces. Details <a class="reference external" href="https://github.com/lczub/PortablePythonWithRobot/issues/2">issue 2</a>.</p>
+<p>First start of PyScripter prompts an error &quot;C:App not found&quot;, but continues.</p>
 </div>
 </div>
 <div class="section" id="directory-layout">
 <h1>Directory Layout</h1>
 <dl class="docutils">
 <dt>App/</dt>
-<dd><a class="reference external" href="http://portablepython.com/">Portable Python</a> installation with <a class="reference external" href="http://robotframework.org/">Robot Framework</a>, <a class="reference external" href="https://github.com/robotframework/RIDE/wiki">Ride</a> and <a class="reference external" href="https://github.com/rtomac/robotframework-selenium2library/#readme">Selenium2Library</a></dd>
+<dd><a class="reference external" href="http://portablepython.com/">Portable Python</a> installation with <a class="reference external" href="http://robotframework.org/">Robot Framework</a>, <a class="reference external" href="https://github.com/robotframework/RIDE/wiki/How-To">Ride</a> and <a class="reference external" href="https://github.com/rtomac/robotframework-selenium2library/#readme">Selenium2Library</a></dd>
 <dt>logs/</dt>
 <dd>default log directory</dd>
 <dt>robot/</dt>
@@ -364,20 +390,22 @@ please choose an installation path name without spaces. Details <a class="refere
 <div class="section" id="documentations">
 <h1>Documentations</h1>
 <ul class="simple">
-<li>Robot Framework User Guide <a class="reference external" href="robot/docs/robotframework-userguide-2.8.4/RobotFrameworkUserGuide.html">robot/docs/robotframework-userguide-2.8.4/RobotFrameworkUserGuide.html</a></li>
-<li>keywords standard test libraries <a class="reference external" href="robot/docs/robotframework-userguide-2.8.4/libraries">robot/docs/robotframework-userguide-2.8.4/libraries</a></li>
+<li>Robot Framework User Guide <a class="reference external" href="robot/docs/robotframework-userguide-2.8.7/RobotFrameworkUserGuide.html">robot/docs/robotframework-userguide-2.8.7/RobotFrameworkUserGuide.html</a></li>
+<li>keywords standard test libraries <a class="reference external" href="robot/docs/robotframework-userguide-2.8.7/libraries">robot/docs/robotframework-userguide-2.8.7/libraries</a></li>
 <li>keywords Selenium2Library <a class="reference external" href="robot/docs/Selenium2Library.html">robot/docs/Selenium2Library.html</a></li>
 <li>keywords Robot Framework Magik Base <a class="reference external" href="robot/docs/robot_magik_base.html">robot/docs/robot_magik_base.html</a></li>
 <li>keywords Robot Framework Magik DsView <a class="reference external" href="robot/docs/robot_magik_dsview.html">robot/docs/robot_magik_dsview.html</a></li>
+<li>Python 2.7.10 documentation <a class="reference external" href="App/doc/python2710.chm">App/doc/python2710.chm</a></li>
+<li>PyScripter Manual <a class="reference external" href="App/PyScripter.chm">App/PyScripter.chm</a></li>
 </ul>
 </div>
 <div class="section" id="package-details">
 <h1>Package Details</h1>
-<table class="docutils" border="1">
+<table border="1" class="docutils">
 <colgroup>
-<col width="19%">
-<col width="41%">
-<col width="41%">
+<col width="19%" />
+<col width="41%" />
+<col width="41%" />
 </colgroup>
 <tbody valign="top">
 <tr><td>Package Name</td>
@@ -385,8 +413,8 @@ please choose an installation path name without spaces. Details <a class="refere
 <td><a class="reference external" href="http://python.org/">Python</a></td>
 </tr>
 <tr><td>Version</td>
-<td>2.7.6.1 (customized)</td>
-<td>2.7.6 (32bit)</td>
+<td>2.7.10.1 (customized)</td>
+<td>2.7.10 (32bit)</td>
 </tr>
 <tr><td>License</td>
 <td><a class="reference external" href="http://opensource.org/licenses/MIT">MIT License</a></td>
@@ -394,11 +422,32 @@ please choose an installation path name without spaces. Details <a class="refere
 </tr>
 </tbody>
 </table>
-<table class="docutils" border="1">
+<table border="1" class="docutils">
 <colgroup>
-<col width="19%">
-<col width="41%">
-<col width="41%">
+<col width="19%" />
+<col width="41%" />
+<col width="41%" />
+</colgroup>
+<tbody valign="top">
+<tr><td>Package Name</td>
+<td><a class="reference external" href="http://sourceforge.net/projects/pyscripter/">PyScripter</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>Version</td>
+<td>2.6.0</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>License</td>
+<td>Open Source Software</td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="41%" />
+<col width="41%" />
 </colgroup>
 <tbody valign="top">
 <tr><td>Package Name</td>
@@ -406,8 +455,8 @@ please choose an installation path name without spaces. Details <a class="refere
 <td><a class="reference external" href="https://github.com/rtomac/robotframework-selenium2library/#readme">Selenium2Library</a></td>
 </tr>
 <tr><td>Version</td>
-<td>&gt;= 2.8.4</td>
-<td>&gt;= 1.5.0</td>
+<td>= 2.8.7</td>
+<td>&gt;= 1.7.4</td>
 </tr>
 <tr><td>License</td>
 <td><a class="reference external" href="http://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a></td>
@@ -415,19 +464,19 @@ please choose an installation path name without spaces. Details <a class="refere
 </tr>
 </tbody>
 </table>
-<table class="docutils" border="1">
+<table border="1" class="docutils">
 <colgroup>
-<col width="19%">
-<col width="41%">
-<col width="41%">
+<col width="19%" />
+<col width="41%" />
+<col width="41%" />
 </colgroup>
 <tbody valign="top">
 <tr><td>Package Name</td>
-<td><a class="reference external" href="https://github.com/robotframework/RIDE/wiki">Ride</a></td>
-<td><a class="reference external" href="http://wxpython.org/">wxPython</a></td>
+<td><a class="reference external" href="https://github.com/robotframework/RIDE/wiki/How-To">Ride</a></td>
+<td><a class="reference external" href="http://wxpython.org">wxPython</a></td>
 </tr>
 <tr><td>Version</td>
-<td>&gt;= 1.3</td>
+<td>= 1.4.1</td>
 <td>2.8.12.1</td>
 </tr>
 <tr><td>License</td>
@@ -436,11 +485,11 @@ please choose an installation path name without spaces. Details <a class="refere
 </tr>
 </tbody>
 </table>
-<table class="docutils" border="1">
+<table border="1" class="docutils">
 <colgroup>
-<col width="19%">
-<col width="41%">
-<col width="41%">
+<col width="19%" />
+<col width="41%" />
+<col width="41%" />
 </colgroup>
 <tbody valign="top">
 <tr><td>Package Name</td>
@@ -448,7 +497,7 @@ please choose an installation path name without spaces. Details <a class="refere
 <td><a class="reference external" href="https://github.com/sakari/robot-mode/#readme">Robot Emacs Mode</a></td>
 </tr>
 <tr><td>Version</td>
-<td>0.3.1</td>
+<td>0.3.2</td>
 <td>---</td>
 </tr>
 <tr><td>License</td>
@@ -457,11 +506,11 @@ please choose an installation path name without spaces. Details <a class="refere
 </tr>
 </tbody>
 </table>
-<table class="docutils" border="1">
+<table border="1" class="docutils">
 <colgroup>
-<col width="19%">
-<col width="41%">
-<col width="41%">
+<col width="19%" />
+<col width="41%" />
+<col width="41%" />
 </colgroup>
 <tbody valign="top">
 <tr><td>Package Name</td>
@@ -469,8 +518,8 @@ please choose an installation path name without spaces. Details <a class="refere
 <td><a class="reference external" href="https://bitbucket.org/robotframework/webdemo/wiki/Home">WebDemo</a></td>
 </tr>
 <tr><td>Version</td>
-<td>20130319</td>
-<td>20130308</td>
+<td>20150901</td>
+<td>201509018</td>
 </tr>
 <tr><td>License</td>
 <td>---</td>
@@ -479,9 +528,8 @@ please choose an installation path name without spaces. Details <a class="refere
 </tbody>
 </table>
 <p>This site is written in <a class="reference external" href="http://docutils.sourceforge.net/docs/user/rst/quickref.html">reStructuredText</a> and converted into HTML with
-<a class="reference external" href="http://www.hosting4u.cz/jbar/rest/rest.html">reStructuredText online renderer</a>.</p>
+<a class="reference external" href="https://www.tele3.cz/jbar/rest/about.html">reStructuredText online renderer</a>.</p>
 </div>
 </div>
-
-
-</body></html>
+</body>
+</html>

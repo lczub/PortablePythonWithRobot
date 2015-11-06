@@ -18,6 +18,6 @@ echo - details see https://bitbucket.org/robotframework/robotdemo/wiki/Home
 echo -----------------------------------------------------------------------
 PAUSE
 
-call pybot --outputdir "%PPR_ROBOT_OUT_DIR%" --pythonpath "%PPR_ROBOTDEMO_DIR%" "%PPR_ROBOTDEMO_DIR%\*.txt"
+call pybot --outputdir "%PPR_ROBOT_OUT_DIR%" --pythonpath "%PPR_ROBOTDEMO_DIR%" "%PPR_ROBOTDEMO_DIR%\*.robot"
 
 PAUSE

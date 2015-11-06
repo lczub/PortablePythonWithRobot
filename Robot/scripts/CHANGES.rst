@@ -1,6 +1,28 @@
 Changes in PortablePythonWithRobot Build environment
 ====================================================
 
+PortablePythonWithRobot v276.2.284.1 (Nov. 2015)
+-----------------------------------------------------------
+
+support of Ride 1.4.1 with Robotframework 2.8.7 (Ride 1.4.1 does not support RF 2.9)
+
+change base to Python 2.7.10 - integrate Portable Python 2.7.10.1 changes
+
+includes new offline installer packages 
+- PyScripter 2.6.0
+
+update offline installer packages
+- Python 2.7.10
+- Robot Framework Magik 0.3.2
+- RobotDemo-20150901
+- WebDemo-20150901
+
+update online installer (PyPI) for 
+
+- Robot Framework = 2.8.7
+- Selenium2Library >= 1.7.4
+- Ride = 1.4.1
+
 PortablePythonWithRobot v276.2.284.1 (May. 2014)
 -----------------------------------------------------------
 
