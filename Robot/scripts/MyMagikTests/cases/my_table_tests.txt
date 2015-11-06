@@ -1,4 +1,4 @@
-#  Copyright 2012 Luiko Czub, Smallcases GmbH
+#  Copyright 2015 Luiko Czub
 #
 #  Place to define own data dictionary tests
 
