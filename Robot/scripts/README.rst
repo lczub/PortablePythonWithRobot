@@ -19,7 +19,7 @@ It is named **PortablePythonWithRobot** (PPR) and includes
 Hope this helps you in your daily work in testing the interacting of Smallworld GIS with 
 web applications or other systems.
 
-Have fun with tests, 06. Nov. 2015
+Have fun with tests, 08. Nov. 2015
 `Luiko Czub`_
 
 Download & Installation
@@ -88,13 +88,13 @@ License       Open Source Software
 
 ============= ============================ ============================
 Package Name  `Robot Framework`_           `Selenium2Library`_
-Version        = 2.8.7                      >= 1.7.4
+Version        2.8.7                        >= 1.7.4
 License       `Apache License 2.0`_        `Apache License 2.0`_
 ============= ============================ ============================
 
 ============= ============================ ============================
 Package Name  `Ride`_                      `wxPython`_
-Version        = 1.4.1                      2.8.12.1
+Version        1.4.1                        2.8.12.1
 License       `Apache License 2.0`_        `wxWindows Library Licence`_
 ============= ============================ ============================
                                        
@@ -135,4 +135,4 @@ This site is written in reStructuredText_ and converted into HTML with
 .. _reStructuredText online renderer: https://www.tele3.cz/jbar/rest/about.html
 .. _GitHup Releases: https://github.com/lczub/PortablePythonWithRobot/releases
 .. _SourceForge: http://sourceforge.net/projects/portablepythonwithrobot/
-.. _PyScripter: http://sourceforge.net/projects/pyscripter/
+.. _PyScripter: http://sourceforge.net/p/pyscripter/wiki/PyScripter/
