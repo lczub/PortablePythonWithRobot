@@ -242,7 +242,7 @@ SectionGroup "Robot `pip` packages"
 		AddSize 3900
         SectionIn 1 2 3 RO
         ; nsExec::ExecToLog '$Pip install robotframework'
-        nsExec::ExecToLog '$Pip install robotframework==2.8.7'
+        nsExec::ExecToLog '$Pip install robotframework>=2.9.2'
 		
 		SetOutPath "$INSTDIR\"
 		File "${SOURCESFOLDER}\robot_scripts\README.*"
@@ -263,7 +263,7 @@ SectionGroup "Robot `pip` packages"
     Section "robotframework-ride (via pip)"  PIP_MODULE_ROBOT_RIDE
 		AddSize 11000
         SectionIn 1 3
-        nsExec::ExecToLog '$Pip install robotframework-ride==1.4.1'
+        nsExec::ExecToLog '$Pip install robotframework-ride>=1.5'
     SectionEnd
 	
 SectionGroupEnd

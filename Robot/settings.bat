@@ -29,7 +29,7 @@ call %PP_BASE%\settings.bat
 
 :: robot spezific settings
 set PY_VERSION=2710
-set PP_VERSION=287.1.0
+set PP_VERSION=292.1.0
 set PY_SHORT_VERSION=27
 rem set TEMP=%~dp0..\build
 
@@ -56,9 +56,9 @@ set PPR_ROBOTMAGIK_FILE=robotframework-magik-0.3.2-42.zip
 set PPR_ROBOTMAGIK_MD5=fcaac6d203674c4e0151b7639ea890c8
 
 :: Robot Framework User Guide
-set PPR_ROBOTUSERGUIDE_DOWNLOAD=http://robotframework.org/robotframework/robotframework-userguide-2.8.7.zip
-set PPR_ROBOTUSERGUIDE_FILE=robotframework-userguide-2.8.7.zip
-set PPR_ROBOTUSERGUIDE_MD5=f0f25da743831a4cdb17646b685f8460
+set PPR_ROBOTUSERGUIDE_DOWNLOAD=http://robotframework.org/robotframework/robotframework-userguide-2.9.2.zip
+set PPR_ROBOTUSERGUIDE_FILE=robotframework-userguide-2.9.2.zip
+set PPR_ROBOTUSERGUIDE_MD5=47bbc429c227a1c1af3ec1d8d4c71ad8
 
 
 

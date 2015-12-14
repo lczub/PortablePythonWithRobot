@@ -27,8 +27,8 @@
 ; Don't use any version numbers here as it is shared between versions.
 
 LangString DESC_PYTHON_CORE ${LANG_ENGLISH} "Installs Python core engine. This component is required and can not be deselected."
-/*
 LangString DESC_IDE_PYSCRIPTER ${LANG_ENGLISH} "PyScripter is a free and open-source Python Integrated Development Environment (IDE)."
+/*
 LangString DESC_MODULE_NUMPY ${LANG_ENGLISH} "NumPy is the fundamental package needed for scientific computing with Python."
 LangString DESC_MODULE_SCIPY ${LANG_ENGLISH} "SciPy is open-source software for mathematics, science, and engineering"
 LangString DESC_MODULE_PYWIN32 ${LANG_ENGLISH} "Python Extensions for Windows"

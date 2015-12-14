@@ -1,6 +1,10 @@
 Changes in PortablePythonWithRobot Build environment
 ====================================================
 
+PortablePythonWithRobot v2710.292.1 (Dec. 2015)
+-----------------------------------------------------------
+support of Ride 1.5 with Robotframework 2.9.2 #4
+
 PortablePythonWithRobot v2710.287.1 (Nov. 2015)
 -----------------------------------------------------------
 
