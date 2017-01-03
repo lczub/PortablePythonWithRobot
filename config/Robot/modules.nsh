@@ -220,7 +220,7 @@ SectionGroup "Robot `pip` packages"
         ; package versions.
         ;
         ; [1]: http://stackoverflow.com/questions/18230956/could-not-find-a-version-that-satisfies-the-requirement-pytz
-        StrCpy $PipInstallFlags ' --pre '
+        StrCpy $PipInstallFlags '--no-cache-dir'
     SectionEnd
 
     Section "Install pip"
@@ -242,7 +242,7 @@ SectionGroup "Robot `pip` packages"
 		AddSize 3900
         SectionIn 1 2 3 RO
         ; nsExec::ExecToLog '$Pip install robotframework'
-        nsExec::ExecToLog '$Pip install robotframework>=2.9.2'
+        nsExec::ExecToLog '$Pip install robotframework>=3.0'
 		
 		SetOutPath "$INSTDIR\"
 		File "${SOURCESFOLDER}\robot_scripts\README.*"
@@ -263,7 +263,7 @@ SectionGroup "Robot `pip` packages"
     Section "robotframework-ride (via pip)"  PIP_MODULE_ROBOT_RIDE
 		AddSize 11000
         SectionIn 1 3
-        nsExec::ExecToLog '$Pip install robotframework-ride>=1.5'
+        nsExec::ExecToLog '$Pip install robotframework-ride>=1.5.2.1'
     SectionEnd
 	
 SectionGroupEnd

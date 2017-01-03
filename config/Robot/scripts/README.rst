@@ -19,7 +19,7 @@ It is named **PortablePythonWithRobot** (PPR) and includes
 Hope this helps you in your daily work in testing the interacting of Smallworld GIS with 
 web applications or other systems.
 
-Have fun with tests, 16. Dec. 2015
+Have fun with tests, 03. Jan. 2017
 `Luiko Czub`_
 
 Download & Installation
@@ -32,7 +32,7 @@ Changes are documented in `CHANGES <CHANGES.rst>`_.
 Known Problems
 --------------
 
-If PPR should be used to start and test Smallworld Magik images, please choose an installation path name without spaces. Details `issue 2 <https://github.com/lczub/PortablePythonWithRobot/issues/2>`_.
+If PPR should be used to start and test Smallworld Magik images, please choose an installation path name without spaces. Details see `issue 2 <https://github.com/lczub/PortablePythonWithRobot/issues/2>`_.
 
 First start of PyScripter prompts an error "C:\App not found", but continues.
 
@@ -63,12 +63,12 @@ ride_*_robot_tests.bat
 Documentations
 ==============
 
-- Robot Framework User Guide `<robot/docs/robotframework-userguide-2.9.2/RobotFrameworkUserGuide.html>`_
-- keywords standard test libraries `<robot/docs/robotframework-userguide-2.9.2/libraries>`_
+- Robot Framework User Guide `<robot/docs/robotframework-userguide-3.0/RobotFrameworkUserGuide.html>`_
+- keywords standard test libraries `<robot/docs/robotframework-userguide-3.0/libraries>`_
 - keywords Selenium2Library `<robot/docs/Selenium2Library.html>`_
 - keywords Robot Framework Magik Base `<robot/docs/robot_magik_base.html>`_
 - keywords Robot Framework Magik DsView `<robot/docs/robot_magik_dsview.html>`_
-- Python 2.7.10 documentation `<App/doc/python2710.chm>`_
+- Python 2.7.11 documentation `<App/doc/python2711.chm>`_
 - PyScripter Manual `<App/PyScripter.chm>`_
 
 Package Details
@@ -76,7 +76,7 @@ Package Details
 
 ============= ============================ ============================
 Package Name  `Portable Python`_           Python_
-Version        2.7.10.1 (customized)       2.7.10 (32bit)
+Version        2.7.11.1 (customized)       2.7.11 (32bit)
 License       `MIT License`_               `Python License 2.0`_
 ============= ============================ ============================
 
@@ -88,25 +88,25 @@ License       Open Source Software
 
 ============= ============================ ============================
 Package Name  `Robot Framework`_           `Selenium2Library`_
-Version        2.9.2                       >= 1.7.4
+Version        >= 3.0                       >= 1.8.0
 License       `Apache License 2.0`_        `Apache License 2.0`_
 ============= ============================ ============================
 
 ============= ============================ ============================
 Package Name  `Ride`_                      `wxPython`_
-Version        1.5                         2.8.12.1
+Version        >= 1.5.2                     2.8.12.1
 License       `Apache License 2.0`_        `wxWindows Library Licence`_
 ============= ============================ ============================
                                        
 ============= ============================ ============================
 Package Name  `Robot Framework Magik`_     `Robot Emacs Mode`_
-Version        0.3.2                        ---
+Version        0.4.4                        ---
 License       `Apache License 2.0`_        `GPL 3.0`_
 ============= ============================ ============================
 
 ============= ============================ ============================
 Package Name  `RobotDemo`_                 `WebDemo`_
-Version        20150901                     20150901
+Version        20160129                     20150901
 License       ---                          ---
 ============= ============================ ============================
 

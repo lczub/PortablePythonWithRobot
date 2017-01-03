@@ -28,8 +28,8 @@ set PP_BASE=%PP_ROBOT%..\2.7
 call %PP_BASE%\settings.bat
 
 :: robot spezific settings
-set PY_VERSION=2710
-set PP_VERSION=292.1.0
+set PY_VERSION=2711
+set PP_VERSION=300.1.0
 set PY_SHORT_VERSION=27
 rem set TEMP=%~dp0..\build
 
@@ -41,9 +41,9 @@ set WXPYTHON_FILE=wxPython2.8-win32-unicode-2.8.12.1-py27.exe
 set WXPYTHON_MD5=895ba07ea6c05fcdbc273a921bad787b
 
 :: RobotDemo-<date>.zip package 
-set PPR_ROBOTDEMO_DOWNLOAD="https://bitbucket.org/robotframework/robotdemo/downloads/RobotDemo-20150901.zip"
-set PPR_ROBOTDEMO_FILE=RobotDemo-20150901.zip
-set PPR_ROBOTDEMO_MD5=543ba0f346efe71b2b3277be3f67deb3
+set PPR_ROBOTDEMO_DOWNLOAD="https://bitbucket.org/robotframework/robotdemo/downloads/RobotDemo-20160129.zip"
+set PPR_ROBOTDEMO_FILE=RobotDemo-20160129.zip
+set PPR_ROBOTDEMO_MD5=c02dc8286de401bd55446b37b5e60fa2
 
 :: WebDemo-<date>.zip package 
 set PPR_WEBDEMO_DOWNLOAD="https://bitbucket.org/robotframework/webdemo/downloads/WebDemo-20150901.zip"
@@ -51,19 +51,17 @@ set PPR_WEBDEMO_FILE=WebDemo-20150901.zip
 set PPR_WEBDEMO_MD5=7492c380e998b1ad4a34acd9a0a638c1
 
 :: Robot Framework Magik (Smallworld GIS)
-set PPR_ROBOTMAGIK_DOWNLOAD="https://github.com/lczub/robotframework-magik/releases/download/v0.3.2/robotframework-magik-0.3.2-42.zip"
-set PPR_ROBOTMAGIK_FILE=robotframework-magik-0.3.2-42.zip
-set PPR_ROBOTMAGIK_MD5=fcaac6d203674c4e0151b7639ea890c8
+set PPR_ROBOTMAGIK_DOWNLOAD="https://github.com/lczub/robotframework-magik/releases/download/v0.4.4/robotframework-magik-0.4.4-92.zip"
+set PPR_ROBOTMAGIK_FILE=robotframework-magik-0.4.4-92.zip
+set PPR_ROBOTMAGIK_MD5=8be5ee7ee58cb4a4e218df2211c3db25
 
 :: Robot Framework User Guide
-set PPR_ROBOTUSERGUIDE_DOWNLOAD=http://robotframework.org/robotframework/robotframework-userguide-2.9.2.zip
-set PPR_ROBOTUSERGUIDE_FILE=robotframework-userguide-2.9.2.zip
-set PPR_ROBOTUSERGUIDE_MD5=47bbc429c227a1c1af3ec1d8d4c71ad8
-
-
+set PPR_ROBOTUSERGUIDE_DOWNLOAD=http://robotframework.org/robotframework/robotframework-userguide-3.0.zip
+set PPR_ROBOTUSERGUIDE_FILE=robotframework-userguide-3.0.zip
+set PPR_ROBOTUSERGUIDE_MD5=50a1ec1f3703553fe122372b1345c882
 
 :: Keyword Documentation Selenium 2 (WebDriver) library for Robot Framework
-set PPR_ROBOTDOCSEL2LIB_DOWNLOAD=http://robotframework.org/Selenium2Library/doc/Selenium2Library.html
+set PPR_ROBOTDOCSEL2LIB_DOWNLOAD=http://robotframework.org/Selenium2Library/Selenium2Library.html
 set PPR_ROBOTDOCSEL2LIB_FILE=Selenium2Library.html
 REM set PPR_ROBOTDOCSEL2LIB_MD5=
 
