@@ -48,7 +48,8 @@ call :UnpackDateutil
 call :UnpackPyParsing
 call :UnpackLXML
 call :UnpackPySerial
-call :UnpackPyODBC
+:: since pyodbc moved from google to github - installation via pip is required
+:: call :UnpackPyODBC
 call :UnpackPyGame
 call :UnpackPyGTK
 call :UnpackPyQT
@@ -846,7 +847,7 @@ setlocal ENABLEEXTENSIONS
 call COMMON :DownloadFile %PYCHARM_DOWNLOAD%
 
 :: Verify 
-call COMMON :VerifyFile %PYCHARM_FILE% MD5 %PYCHARM_MD5%
+call COMMON :VerifyFile %PYCHARM_FILE% SHA256 %PYCHARM_SHA256%
 
 :: Unpack files
 call COMMON :LogMessage "Extracting PyCharm files"

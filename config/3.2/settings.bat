@@ -70,9 +70,10 @@ set PY_SERIAL_DOWNLOAD="http://pypi.python.org/packages/any/p/pyserial/pyserial-
 set PY_SERIAL_FILE=pyserial-py3k-2.5.win32.exe
 set PY_SERIAL_MD5=c7d770dede6f6c6197d9652a7658f18e
 
-set PYODBC_DOWNLOAD="http://pyodbc.googlecode.com/files/pyodbc-3.0.2.win32-py3.2.exe"
-set PYODBC_FILE=pyodbc-3.0.2.win32-py3.2.exe
-set PYODBC_SHA1=9abe8b36be9f3a2dbb427a4a049e9b70cd909c6d
+:: since pyodbc moved from google to github - installation via pip is required
+:: set PYODBC_DOWNLOAD="http://pyodbc.googlecode.com/files/pyodbc-3.0.2.win32-py3.2.exe"
+:: set PYODBC_FILE=pyodbc-3.0.2.win32-py3.2.exe
+:: set PYODBC_SHA1=9abe8b36be9f3a2dbb427a4a049e9b70cd909c6d
 
 set PYQT_DOWNLOAD="http://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.9.6/PyQt-Py3.2-x86-gpl-4.9.6-1.exe"
 set PYQT_FILE=PyQt-Py3.2-x86-gpl-4.9.6-1.exe
@@ -86,6 +87,6 @@ set PANDAS_DOWNLOAD="https://pypi.python.org/packages/3.2/p/pandas/pandas-0.11.0
 set PANDAS_FILE=pandas-0.11.0.win32-py3.2.exe
 set PANDAS_MD5=7f11d2f59284c5ba64e7d781e1023f95
 
-set PYCHARM_DOWNLOAD="http://download-cf.jetbrains.com/python/pycharm-community-3.1.2.exe"
-set PYCHARM_FILE=pycharm-community-3.1.2.exe
-set PYCHARM_MD5=4707668758b044bf5a4214557e7a15fa
+set PYCHARM_DOWNLOAD="http://download.jetbrains.com/python/pycharm-community-2016.3.1.exe"
+set PYCHARM_FILE=pycharm-community-2016.3.1.exe
+set PYCHARM_SHA256=3546c3f68d142d85f6a5283f3a4ee4d1161238b82bc9c8296ad8010c4d8f11c1
