@@ -23,6 +23,11 @@ update documentation installer packages
 - Robot User Guide 3.0
 - Selenium2Library Keyword Documentation 1.8.0
 
+includes new offline webdriver packages required by Selenium #5
+
+- geckodriver 0.12
+- chromedriver 2.27
+
 PortablePythonWithRobot v2710.292.1 (Dec. 2015)
 -----------------------------------------------------------
 support of Ride 1.5 with Robotframework 2.9.2 #4

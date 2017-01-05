@@ -8,6 +8,9 @@ rem ----------------------------------------------
 set PPR_THIS_DIR=%~dp0
 call robot\setenv_robot_general.bat
 
+rem set PATH=%PATH%;C:\Program Files\Mozilla Firefox;
+set PATH=%PATH%;C:\Program Files (x86)\Mozilla Firefox;
+
 echo -----------------------------------------------------------------------
 echo starts RIDE Editor with Web Robot Tests using Selenium2Library
 echo -----------------------------------------------------------------------

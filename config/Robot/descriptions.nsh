@@ -60,7 +60,9 @@ LangString DESC_PIP_MODULE_IPYTHON ${LANG_ENGLISH} "Alternative pip installation
 LangString DESC_PIP_MODULE_ROBOT ${LANG_ENGLISH} "Robot Framework is a generic test automation framework for acceptance testing and acceptance test-driven development (ATDD)."
 LangString DESC_PIP_MODULE_ROBOT_SELENIUM2LIB ${LANG_ENGLISH} "Selenium2Library is a web testing library for Robot Framework that leverages the Selenium 2 (WebDriver) libraries from the Selenium project. It is modeled after (and forked from) the SeleniumLibrary library, but re-implemented to use Selenium 2 and WebDriver technologies."
 LangString DESC_PIP_MODULE_ROBOT_RIDE ${LANG_ENGLISH} "RIDE is a light-weight and intuitive editor for Robot Framework test case files."
-LangString DESC_LIBRARY_ROBOT_MAGIK  ${LANG_ENGLISH} "Robot Framework high level keywords for automated testing Smallworld Magik images and Python scripts to start and stop Smallworld Images with a remote_cli."
+LangString DESC_LIBRARY_ROBOT_MAGIK  ${LANG_ENGLISH} "Robot Framework keywords for automated testing Smallworld Magik images (4.x) and sessions (5.x). It includes also a Robot library and Python scripts to start and stop Magik images (4.x) / sessions (5.x) with a remote_cli."
+LangString DESC_WEBDRIVER_GECKO  ${LANG_ENGLISH} "Proxy for using W3C WebDriver-compatible clients to interact with Gecko-based browsers. This program provides the HTTP API described by the WebDriver protocol to communicate with Gecko browsers, such as Firefox. "
+LangString DESC_WEBDRIVER_CHROME  ${LANG_ENGLISH} "ChromeDriver is a separate executable that WebDriver uses to control Chrome. It is maintained by the Chromium team with help from WebDriver contributors."
 
 !insertmacro MUI_FUNCTION_DESCRIPTION_BEGIN
   !insertmacro MUI_DESCRIPTION_TEXT ${PYTHON_CORE} $(DESC_PYTHON_CORE)
@@ -99,4 +101,6 @@ LangString DESC_LIBRARY_ROBOT_MAGIK  ${LANG_ENGLISH} "Robot Framework high level
   !insertmacro MUI_DESCRIPTION_TEXT ${PIP_MODULE_ROBOT_SELENIUM2LIB} $(DESC_PIP_MODULE_ROBOT_SELENIUM2LIB)
   !insertmacro MUI_DESCRIPTION_TEXT ${PIP_MODULE_ROBOT_RIDE} $(DESC_PIP_MODULE_ROBOT_RIDE)
   !insertmacro MUI_DESCRIPTION_TEXT ${LIBRARY_ROBOT_MAGIK} $(DESC_LIBRARY_ROBOT_MAGIK)
+  !insertmacro MUI_DESCRIPTION_TEXT ${WEBDRIVER_GECKO} $(DESC_WEBDRIVER_GECKO)
+  !insertmacro MUI_DESCRIPTION_TEXT ${WEBDRIVER_CHROME} $(DESC_WEBDRIVER_CHROME)
 !insertmacro MUI_FUNCTION_DESCRIPTION_END

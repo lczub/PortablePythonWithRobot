@@ -349,9 +349,10 @@ automation framework <a class="reference external" href="http://robotframework.o
 <ul class="simple">
 <li>the <a class="reference external" href="http://portablepython.com/">Portable Python</a> core</li>
 <li>the <a class="reference external" href="http://robotframework.org/">Robot Framework</a> <a class="reference external" href="http://robotframework.org/#test-libraries">standard test libraries</a> and <a class="reference external" href="https://github.com/robotframework/RIDE/wiki/How-To">RIDE</a> test data editor</li>
-<li>the <a class="reference external" href="https://github.com/rtomac/robotframework-selenium2library/#readme">Selenium2Library</a> for web testing and</li>
+<li>the <a class="reference external" href="https://github.com/rtomac/robotframework-selenium2library/#readme">Selenium2Library</a> together with some <a class="reference external" href="https://w3c.github.io/webdriver/webdriver-spec.html">WebDriver</a> for web testing</li>
 <li>the <a class="reference external" href="https://github.com/lczub/robotframework-magik/#readme">Robot Framework Magik</a> extension for testing Smallworld Magik 4.x images and 5.x sessions.</li>
 <li>the <a class="reference external" href="http://sourceforge.net/p/pyscripter/wiki/PyScripter/">PyScripter</a>, a Python Integrated Development Environment (IDE)</li>
+<li></li>
 </ul>
 <p>Hope this helps you in your daily work in testing the interacting of Smallworld GIS with
 web applications or other systems.</p>
@@ -377,6 +378,8 @@ web applications or other systems.</p>
 <dd>default log directory</dd>
 <dt>robot/</dt>
 <dd>resources like <a class="reference external" href="https://github.com/lczub/robotframework-magik/#readme">Robot Framework Magik</a>, <a class="reference external" href="https://bitbucket.org/robotframework/robotdemo/wiki/Home">RobotDemo</a>, <a class="reference external" href="https://bitbucket.org/robotframework/webdemo/wiki/Home">WebDemo</a>, <a class="reference external" href="https://github.com/sakari/robot-mode/#readme">Robot Emacs Mode</a></dd>
+<dt>robot/WebDriver/</dt>
+<dd>required <a class="reference external" href="https://github.com/mozilla/geckodriver">GeckoDriver</a> and <a class="reference external" href="https://sites.google.com/a/chromium.org/chromedriver/getting-started">ChromeDriver</a> for testing browser with <a class="reference external" href="https://github.com/rtomac/robotframework-selenium2library/#readme">Selenium2Library</a></dd>
 <dt>MyMagikTests/</dt>
 <dd>place for your own tests and keyword definitions</dd>
 <dt>run_*_robot_tests.bat</dt>
@@ -525,6 +528,27 @@ web applications or other systems.</p>
 <tr><td>License</td>
 <td>---</td>
 <td>---</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="19%" />
+<col width="41%" />
+<col width="41%" />
+</colgroup>
+<tbody valign="top">
+<tr><td>Package Name</td>
+<td><a class="reference external" href="https://github.com/mozilla/geckodriver">GeckoDriver</a></td>
+<td><a class="reference external" href="https://sites.google.com/a/chromium.org/chromedriver/getting-started">ChromeDriver</a></td>
+</tr>
+<tr><td>Version</td>
+<td>0.12</td>
+<td>2.27</td>
+</tr>
+<tr><td>License</td>
+<td><a class="reference external" href="https://opensource.org/licenses/MPL-2.0">MPL 2.0</a></td>
+<td>???</td>
 </tr>
 </tbody>
 </table>

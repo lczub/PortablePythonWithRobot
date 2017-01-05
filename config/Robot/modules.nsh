@@ -336,6 +336,21 @@ SectionGroup "Documentations"
 
 SectionGroupEnd
 
+SectionGroup "WebDriver"
+	Section "WebDriver Gecko (FireFox Mozilla)"  WEBDRIVER_GECKO
+		AddSize 8
+        SectionIn 1
+		SetOutPath "$INSTDIR\robot\WebDriver"
+		File "${SOURCESFOLDER}\robot_scripts\robot\WebDriver\gecko*.*"
+    SectionEnd
+	Section "WebDriver Chrome (Goggle)"  WEBDRIVER_CHROME
+		AddSize 8
+        SectionIn 1
+		SetOutPath "$INSTDIR\robot\WebDriver"
+		File "${SOURCESFOLDER}\robot_scripts\robot\WebDriver\chrome*.*"
+    SectionEnd
+
+SectionGroupEnd
 ; Section dependencies
 /*
 Function .onSelChange

@@ -12,9 +12,10 @@ It is named **PortablePythonWithRobot** (PPR) and includes
 
 - the `Portable Python`_ core
 - the `Robot Framework`_ `standard test libraries`_ and `RIDE`_ test data editor 
-- the `Selenium2Library`_ for web testing and 
+- the `Selenium2Library`_ together with some `WebDriver`_ for web testing 
 - the `Robot Framework Magik`_ extension for testing Smallworld Magik 4.x images and 5.x sessions.
 - the `PyScripter`_, a Python Integrated Development Environment (IDE) 
+- 
 
 Hope this helps you in your daily work in testing the interacting of Smallworld GIS with 
 web applications or other systems.
@@ -47,6 +48,9 @@ logs/
 
 robot/
     resources like `Robot Framework Magik`_, RobotDemo_, WebDemo_, `Robot Emacs Mode`_
+	
+robot/WebDriver/
+    required `GeckoDriver`_ and `ChromeDriver`_ for testing browser with `Selenium2Library`_
 	
 MyMagikTests/
     place for your own tests and keyword definitions	
@@ -111,6 +115,12 @@ Version        20160129                     20150901
 License       ---                          ---
 ============= ============================ ============================
 
+============= ============================ ============================
+Package Name  `GeckoDriver`_               `ChromeDriver`_
+Version        0.12                         2.27
+License       `MPL 2.0`_                    ???
+============= ============================ ============================
+
 This site is written in reStructuredText_ and converted into HTML with 
 `reStructuredText online renderer`_.
 
@@ -137,3 +147,7 @@ This site is written in reStructuredText_ and converted into HTML with
 .. _GitHup Releases: https://github.com/lczub/PortablePythonWithRobot/releases
 .. _SourceForge: http://sourceforge.net/projects/portablepythonwithrobot/
 .. _PyScripter: http://sourceforge.net/p/pyscripter/wiki/PyScripter/
+.. _WebDriver: https://w3c.github.io/webdriver/webdriver-spec.html
+.. _GeckoDriver: https://github.com/mozilla/geckodriver
+.. _ChromeDriver: https://sites.google.com/a/chromium.org/chromedriver/getting-started
+.. _MPL 2.0: https://opensource.org/licenses/MPL-2.0 

@@ -29,7 +29,7 @@ call %PP_BASE%\settings.bat
 
 :: robot spezific settings
 set PY_VERSION=2711
-set PP_VERSION=300.1.1
+set PP_VERSION=300.1.2
 set PY_SHORT_VERSION=27
 rem set TEMP=%~dp0..\build
 
@@ -69,3 +69,13 @@ REM set PPR_ROBOTDOCSEL2LIB_MD5=
 set PPR_ROBOTEMACS_DOWNLOAD=https://github.com/sakari/robot-mode/archive/master.zip
 set PPR_ROBOTEMACS_FILE=robot-mode-master.zip
 set PPR_ROBOTEMACS_MD5=755535df8d2defa442af583215905a74
+
+:: WebDriver Gecko (FireFox Mozilla)
+set PPR_WEBDRIVERGECKO_DOWNLOAD=https://github.com/mozilla/geckodriver/releases/download/v0.12.0/geckodriver-v0.12.0-win32.zip
+set PPR_WEBDRIVERGECKO_FILE=geckodriver-v0.12.0-win32.zip
+set PPR_WEBDRIVERGECKO_MD5=e15affee73c275d5fa9baae448ca8231
+
+:: WebDriver Chrome (Google)
+set PPR_WEBDRIVERCHROME_DOWNLOAD=https://chromedriver.storage.googleapis.com/2.27/chromedriver_win32.zip
+set PPR_WEBDRIVERCHROME_FILE=chromedriver_win32.zip
+set PPR_WEBDRIVERCHROME_MD5=2125188a206e2258364c3e46f07724e5

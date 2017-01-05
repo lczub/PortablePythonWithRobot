@@ -37,6 +37,8 @@ call :UnpackRobotMagik
 call :UnpackRobotUserGuide
 call :UnpackKeywordsSelenium2Lib
 call :UnpackRobotEmacsMode
+call :UnpackRobotWebDriverGecko
+call :UnpackRobotWebDriverChrome
 
 goto:EOF
 
@@ -91,7 +93,7 @@ setlocal ENABLEEXTENSIONS
 rem call COMMON :DownloadFile %PPR_ROBOTDEMO_DOWNLOAD%
 call :DownloadFileAndRename %PPR_ROBOTDEMO_DOWNLOAD% %PPR_ROBOTDEMO_FILE%
 
-:: Verify 
+:: Verify
 call COMMON :VerifyFile %PPR_ROBOTDEMO_FILE% MD5 %PPR_ROBOTDEMO_MD5%
 
 :: Unpack files
@@ -115,7 +117,7 @@ setlocal ENABLEEXTENSIONS
 rem call COMMON :DownloadFile %PPR_WEBDEMO_DOWNLOAD%
 call :DownloadFileAndRename %PPR_WEBDEMO_DOWNLOAD% %PPR_WEBDEMO_FILE%
 
-:: Verify 
+:: Verify
 call COMMON :VerifyFile %PPR_WEBDEMO_FILE% MD5 %PPR_WEBDEMO_MD5%
 
 :: Unpack files
@@ -139,7 +141,7 @@ setlocal ENABLEEXTENSIONS
 :: Download robotframework-magik-<version>.zip
 call :DownloadFileAndRename %PPR_ROBOTMAGIK_DOWNLOAD% %PPR_ROBOTMAGIK_FILE%
 
-:: Verify 
+:: Verify
 call COMMON :VerifyFile %PPR_ROBOTMAGIK_FILE% MD5 %PPR_ROBOTMAGIK_MD5%
 
 :: Unpack files
@@ -162,7 +164,7 @@ setlocal ENABLEEXTENSIONS
 call COMMON :DownloadFile %PPR_ROBOTUSERGUIDE_DOWNLOAD%
 REM call :DownloadFileAndRename %PPR_ROBOTUSERGUIDE_DOWNLOAD% %PPR_ROBOTUSERGUIDE_FILE%
 
-:: Verify 
+:: Verify
 call COMMON :VerifyFile %PPR_ROBOTUSERGUIDE_FILE% MD5 %PPR_ROBOTUSERGUIDE_MD5%
 
 :: Unpack files
@@ -205,12 +207,58 @@ setlocal ENABLEEXTENSIONS
 REM call COMMON :DownloadFile %PPR_ROBOTEMACS_DOWNLOAD%
 call :DownloadFileAndRename %PPR_ROBOTEMACS_DOWNLOAD% %PPR_ROBOTEMACS_FILE%
 
-:: Verify 
+:: Verify
 call COMMON :VerifyFile %PPR_ROBOTEMACS_FILE% MD5 %PPR_ROBOTEMACS_MD5%
 
 :: Unpack files
 call COMMON :LogMessage "Extracting Robot Emacs Mode"
 tools\uniextract16\UniExtract.exe "%BIN_FOLDER%\%PPR_ROBOTEMACS_FILE%" "%UNPACK_FOLDER%\robot_scripts\robot" >NUL
+
+endlocal&goto :EOF
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:UnpackRobotWebDriverGecko
+::
+:: By:   Luiko Czub
+:: Func: Download and extract selenium webdriver Gecko (FireFox Mozilla)
+:: Args: none
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+setlocal ENABLEEXTENSIONS
+
+:: Download geckodriver-v0.xx.x-win32.zip
+rem call COMMON :DownloadFile %PPR_WEBDRIVERGECKO_DOWNLOAD%
+call :DownloadFileAndRename %PPR_WEBDRIVERGECKO_DOWNLOAD% %PPR_WEBDRIVERGECKO_FILE%
+
+:: Verify
+call COMMON :VerifyFile %PPR_WEBDRIVERGECKO_FILE% MD5 %PPR_WEBDRIVERGECKO_MD5%
+
+:: Unpack files
+call COMMON :LogMessage "Extracting webdriver Gecko"
+tools\uniextract16\UniExtract.exe "%BIN_FOLDER%\%PPR_WEBDRIVERGECKO_FILE%" "%UNPACK_FOLDER%\robot_scripts\robot\WebDriver" >NUL
+
+endlocal&goto :EOF
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:UnpackRobotWebDriverChrome
+::
+:: By:   Luiko Czub
+:: Func: Download and extract selenium webdriver Chrome (Google)
+:: Args: none
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+setlocal ENABLEEXTENSIONS
+
+:: Download robot-mode-master.zip
+call COMMON :DownloadFile %PPR_WEBDRIVERCHROME_DOWNLOAD%
+rem call :DownloadFileAndRename %PPR_WEBDRIVERCHROME_DOWNLOAD% %PPR_WEBDRIVERCHROME_FILE%
+
+:: Verify
+call COMMON :VerifyFile %PPR_WEBDRIVERCHROME_FILE% MD5 %PPR_WEBDRIVERCHROME_MD5%
+
+:: Unpack files
+call COMMON :LogMessage "Extracting webdriver Chrome"
+tools\uniextract16\UniExtract.exe "%BIN_FOLDER%\%PPR_WEBDRIVERCHROME_FILE%" "%UNPACK_FOLDER%\robot_scripts\robot\WebDriver" >NUL
 
 endlocal&goto :EOF
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
