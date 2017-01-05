@@ -1,0 +1,17 @@
+#  Copyright 2017 Luiko Czub, Smallcases Software GmbH
+#
+#  Initialization file starting a Magik Session as Suite Setup 
+#  and closing this Magik Session as Teardown
+
+*** Settings ***
+Documentation     Example - Initialization file starting a Magik Session as Suite Setup and closing this Magik Session as Teardown
+Suite Setup       Start And Wait For Magik Session
+Suite Teardown    Stop Magik Session
+Library           Process
+Variables         %{PPR_ROBOT_DIR}/variables_sw43_cbg.py
+Library           %{PPR_ROBOT_MAGIK}/resources/RobotMagikLauncher.py    swproduct=${SWPRODUCT}    cli_port=${CLI_PORT}    wait=${START_WAIT}
+
+*** Keywords ***
+Start And Wait For Magik Session
+    Start Magik Session     aliasfile=${ALIASFILE}    gis_alias=${ALIASNAME}    msf_startup=${MSFSTARTUP}    login=${LOGIN}
+    Session Should Be Reachable

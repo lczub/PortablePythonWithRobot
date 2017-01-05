@@ -1,7 +1,7 @@
 @echo OFF
 
 rem ----------------------------------------------
-rem Copyright 2015 Luiko Czub
+rem Copyright 2015-2017 Luiko Czub
 rem Apache License 2.0
 rem ----------------------------------------------
 
@@ -12,18 +12,18 @@ set PPR_ROBOT_LOG_DIR=%PPR_THIS_DIR%\logs
 set PPR_ROBOT_OUT_DIR=%PPR_ROBOT_LOG_DIR%\MyMagikTests
 set PPR_MY_TESTS_DIR=%PPR_THIS_DIR%\MyMagikTests\cases
 
+rem set PPR_VARIABLEFILE=%PPR_ROBOT_DIR%\variables_sw51_cbg.py
+set PPR_VARIABLEFILE=%PPR_ROBOT_DIR%\variables_sw43_cbg.py
+
 echo -----------------------------------------------------------------------
 echo starts your own Robot Tests definied in MyMagikTests/cases
 echo    ----
-echo Precondition 
-echo - Magik Image must be started with open remote_cli on port %PPR_CLI_PORT%
-echo   start image and enter remote_cli.new(%PPR_CLI_PORT%)
-echo   or adapt start_magik_image.bat
-echo   see robot\robotframework-magik\doc\robot_magik_base.html
+echo - Magik Image / Session will be started with settings, defined in 
+echo   %PPR_VARIABLEFILE%
 echo -----------------------------------------------------------------------
 PAUSE
 
-pybot --noncritical Negativ* --outputdir "%PPR_ROBOT_OUT_DIR%" --variable CLI_PORT:%PPR_CLI_PORT% --variable CLI_HOST:%PPR_CLI_HOST% --variable CLI_TIMEOUT:%PPR_CLI_TIMEOUT% "%PPR_MY_TESTS_DIR%"
+call pybot --noncritical Negativ* --outputdir "%PPR_ROBOT_OUT_DIR%" --variablefile %PPR_VARIABLEFILE% "%PPR_MY_TESTS_DIR%"
 
 
 PAUSE

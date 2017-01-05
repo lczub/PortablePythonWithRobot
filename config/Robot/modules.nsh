@@ -27,7 +27,7 @@ InstType "Full"
 InstType "Minimal"
 InstType "Ride"
 
-Section "!Python 2.7.10 core" PYTHON_CORE
+Section "!Python 2.7.11 core" PYTHON_CORE
 	AddSize 16400
 	SectionIn 1 2 3 RO
 	SetOutPath "$INSTDIR"

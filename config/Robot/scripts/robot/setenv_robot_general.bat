@@ -1,7 +1,7 @@
 @echo off
 
 rem ----------------------------------------------
-rem Copyright 2015 Luiko Czub
+rem Copyright 2015-2017 Luiko Czub
 rem Apache License 2.0
 rem ----------------------------------------------
 

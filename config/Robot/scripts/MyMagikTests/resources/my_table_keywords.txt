@@ -1,4 +1,4 @@
-#  Copyright 2015 Luiko Czub
+#  Copyright 2015-2017 Luiko Czub
 #
 # Place to define own keywords for magik datadictionary tests
 

@@ -13,13 +13,13 @@ It is named **PortablePythonWithRobot** (PPR) and includes
 - the `Portable Python`_ core
 - the `Robot Framework`_ `standard test libraries`_ and `RIDE`_ test data editor 
 - the `Selenium2Library`_ for web testing and 
-- the `Robot Framework Magik`_ extension for testing Smallworld Magik images.
+- the `Robot Framework Magik`_ extension for testing Smallworld Magik 4.x images and 5.x sessions.
 - the `PyScripter`_, a Python Integrated Development Environment (IDE) 
 
 Hope this helps you in your daily work in testing the interacting of Smallworld GIS with 
 web applications or other systems.
 
-Have fun with tests, 03. Jan. 2017
+Have fun with testing, 05. Jan. 2017
 `Luiko Czub`_
 
 Download & Installation
@@ -68,6 +68,7 @@ Documentations
 - keywords Selenium2Library `<robot/docs/Selenium2Library.html>`_
 - keywords Robot Framework Magik Base `<robot/docs/robot_magik_base.html>`_
 - keywords Robot Framework Magik DsView `<robot/docs/robot_magik_dsview.html>`_
+- keywords Robot Framework library RobotMagikLauncher `<robot/docs/RobotMagikLauncher.html>`_
 - Python 2.7.11 documentation `<App/doc/python2711.chm>`_
 - PyScripter Manual `<App/PyScripter.chm>`_
 

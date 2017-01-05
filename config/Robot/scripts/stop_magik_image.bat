@@ -1,7 +1,7 @@
 @echo off
 
 rem ----------------------------------------------
-rem Copyright 2015 Luiko Czub
+rem Copyright 2015-2017 Luiko Czub
 rem Apache License 2.0
 rem ----------------------------------------------
 
@@ -17,7 +17,7 @@ echo stops image via remot_cli port %PPR_CLI_PORT%
 echo -----------------------------------------------------------------------
 PAUSE
 
-python "%PPR_ROBOT_MAGIK%\scripts\robot_stop_magik_image.py" --piddir "%PPR_PID_LOG_DIR%" --cli_port %PPR_CLI_PORT%
+python "%PPR_ROBOT_MAGIK%\resources\scripts\robot_stop_magik_image.py" --piddir "%PPR_PID_LOG_DIR%" --cli_port %PPR_CLI_PORT%
 
 IF ERRORLEVEL 1 ECHO error level is 1 or more
 PAUSE
