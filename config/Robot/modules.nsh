@@ -308,6 +308,7 @@ SectionGroup "Examples"
 		File /r "${SOURCESFOLDER}\robot_scripts\MyMagikTests"
 		SetOutPath "$INSTDIR\robot"
 		File "${SOURCESFOLDER}\robot_scripts\robot\setenv_robot_magik.bat"
+		File "${SOURCESFOLDER}\robot_scripts\robot\variables*.py"
     SectionEnd
 	
 SectionGroupEnd

@@ -29,7 +29,7 @@ call %PP_BASE%\settings.bat
 
 :: robot spezific settings
 set PY_VERSION=2711
-set PP_VERSION=300.1.2
+set PP_VERSION=300.1.3
 set PY_SHORT_VERSION=27
 rem set TEMP=%~dp0..\build
 
