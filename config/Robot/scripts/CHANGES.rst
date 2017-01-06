@@ -1,7 +1,7 @@
 Changes in PortablePythonWithRobot Build environment
 ====================================================
 
-PortablePythonWithRobot v2711.300.1 - UNDER DEVELOP (Jan. 2017)
+PortablePythonWithRobot v2711.300.1 (Jan. 2017)
 ---------------------------------------------------------------
 
 change base to Python 2.7.11 - integrate Portable Python 2.7.11.1 changes
