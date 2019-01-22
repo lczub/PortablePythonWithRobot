@@ -1,5 +1,7 @@
 ## Fork of Portable Python development pages
-Target is to build a [Robot Framework](http://robotframework.org/) environment , runnable directly from any USB storage device, local or network location (on MS Window systems). Details see [Robot - README.rst](config/Robot/scripts/README.rst)
+It is not maintained anymore, cause it is nowadays much easier to install a collection of robot modules using a virtualenv and pip or pipenv.
+
+Target was to build a [Robot Framework](http://robotframework.org/) environment , runnable directly from any USB storage device, local or network location (on MS Window systems). Details see [Robot - README.rst](config/Robot/scripts/README.rst)
 
 Build command is `build Robot`
 
